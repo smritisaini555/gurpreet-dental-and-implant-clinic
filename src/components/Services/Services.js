@@ -1,15 +1,11 @@
 import React from 'react';
-import Slider from 'react-slick'; // Import Slider component
-import './Services.css'; // Link to your CSS file
-
-// Import your images (replace with actual paths)
-import conservativeImage from '../../assests/images/conservative.jpg'; // Example, replace with your image
-import aestheticsImage from '../../assests/images/aesthetics.jpg'; // Example, replace with your image
-import orthodonticsImage from '../../assests/images/orthodontics.jpg'; // Example, replace with your image
-import service4Image from '../../assests/images/conservative.jpg'; // Add your new image
-import service5Image from '../../assests/images/aesthetics.jpg'; // Add your new image
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick'; 
+import './Services.css'; 
+import conservativeImage from '../../assests/images/conservative.jpg'; 
+import aestheticsImage from '../../assests/images/aesthetics.jpg';
+import orthodonticsImage from '../../assests/images/orthodontics.jpg'; 
+import service4Image from '../../assests/images/conservative.jpg'; 
+import service5Image from '../../assests/images/aesthetics.jpg'; 
 
 
 const Services = () => {
@@ -24,6 +20,21 @@ const Services = () => {
     cssEase: "linear", 
     arrows: false, 
     responsive: [ 
+       {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 1 
+        }
+      },
       {
         breakpoint: 1024,
         settings: {
@@ -31,21 +42,6 @@ const Services = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: true
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1 
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
         }
       }
     ]
