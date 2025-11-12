@@ -1,0 +1,154 @@
+.about-section-container {
+    height: 100vh;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('../../assests/images/about-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-content {
+    color: #ffffff;
+    text-align: left;
+    z-index: 2;
+}
+
+.about-main-title {
+    font-size: 3.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.about-subtitle {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #d1d1d1;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-description {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: #d1d1d1;
+}
+
+.about-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.aboutbutton {
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.read-more-button {
+    background-color: #fce7db;
+    color: #000000;
+    border: 1px solid #fce7db;
+}
+
+.read-more-button:hover {
+    background-color: #e0d0c5;
+    border-color: #e0d0c5;
+}
+
+.visit-us-button {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.visit-us-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+@media (max-width: 992px) {
+    .about-section-container {
+        padding: 0 8%;
+    }
+
+    .about-main-title {
+        font-size: 2.8em;
+    }
+
+    .about-description {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section-container {
+        padding: 0 5%;
+        height: auto;
+        min-height: 80vh;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .about-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about-main-title {
+        font-size: 2.2em;
+    }
+
+    .about-subtitle {
+        font-size: 1.1em;
+    }
+
+    .about-description {
+        font-size: 0.9em;
+    }
+
+    .about-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .button {
+        width: 80%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-main-title {
+        font-size: 1.8em;
+    }
+
+    .about-subtitle {
+        font-size: 1em;
+    }
+
+    .about-description {
+        font-size: 0.85em;
+    }
+
+    .button {
+        width: 90%;
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}

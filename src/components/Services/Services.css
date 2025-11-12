@@ -1,0 +1,225 @@
+.services-section {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.services-main-title {
+    font-size: 2.8em;
+    font-weight: 600;
+    margin-bottom: 60px;
+    color: #ffffff;
+}
+
+.services-carousel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.service-card-wrapper {
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.service-card {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: inset 5px 0 0 0 #00c4cc;
+    border-radius: 8px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-image-container,
+.service-card-title,
+.service-card-subtitle,
+.service-card-description {
+    position: relative;
+    z-index: 1;
+}
+
+
+.service-image-container {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #333;
+}
+
+.service-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.service-card-title {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding: 0 15px;
+    color: #ffffff;
+}
+
+.service-card-subtitle {
+    font-size: 0.9em;
+    color: #999999;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.service-card-description {
+    font-size: 0.9em;
+    color: #cccccc;
+    line-height: 1.6;
+    padding: 0 25px;
+    text-align: left;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 35px;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.service-card-description p {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.service-card-description p:last-child {
+    margin-bottom: 0;
+}
+
+.service-card-description::-webkit-scrollbar {
+    width: 8px;
+}
+
+.service-card-description::-webkit-scrollbar-thumb {
+    background-color: #888888;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.service-card-description::-webkit-scrollbar-track {
+    background-color: #333333;
+    border-radius: 4px;
+}
+
+.service-card-description::-webkit-scrollbar-thumb:hover {
+    background-color: #aaaaaa;
+}
+
+.slick-dots {
+    bottom: -40px;
+}
+
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #555555;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #ffffff;
+}
+
+.slick-prev:before, .slick-next:before {
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.slick-prev {
+    left: -40px;
+    z-index: 10;
+}
+
+.slick-next {
+    right: -40px;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .slick-prev, .slick-next {
+        display: none !important;
+    }
+    .services-carousel-container {
+        padding: 0;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .services-main-title {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-section {
+        padding: 60px 0;
+    }
+    .services-main-title {
+        font-size: 2em;
+        margin-bottom: 40px;
+    }
+    .service-card-wrapper {
+        padding: 0 5px;
+    }
+    .slick-dots {
+        bottom: -30px;
+    }
+    .service-card {
+        height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-main-title {
+        font-size: 1.8em;
+    }
+    .service-card-title {
+        font-size: 1.2em;
+    }
+    .service-card-subtitle,
+    .service-card-description {
+        font-size: 0.85em;
+    }
+    .services-carousel-container {
+        padding: 0 10px;
+    }
+    .service-card {
+        height: 480px;
+    }
+}
