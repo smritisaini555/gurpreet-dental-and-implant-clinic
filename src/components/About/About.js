@@ -2,6 +2,13 @@ import React from 'react';
 import './About.css'; // Link to your CSS file
 
 const About = () => {
+  const handleScrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+        contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return (
     <div className='about-section-container' id='about'>
       <div className='about-content'>
@@ -14,7 +21,10 @@ const About = () => {
         </p>
         <div className='about-buttons'>
           <button className='aboutbutton read-more-button'>Read More</button>
-          <button className='aboutbutton visit-us-button'>VISIT US</button>
+          <button className='aboutbutton visit-us-button' onClick={handleScrollToContact}
+          >
+            VISIT US
+          </button>
         </div>
       </div>
     </div>
