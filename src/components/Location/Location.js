@@ -18,7 +18,7 @@ const Location = () => {
   };
 
   return (
-    <div className='location-section'>
+    <div className='location-section' id='contact'>
       <h2 className='location-main-title'>Find Us</h2>
 
       <div className='map-container'>

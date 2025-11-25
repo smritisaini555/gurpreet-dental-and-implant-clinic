@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css'; 
 import { MapPin, Phone, Mail, Facebook, Instagram, Globe } from 'lucide-react';
+import Logo from '../../assests/icons/Logo.jpeg';
 
 const Footer = () => {
     const clinicName = "GURPREET DENTAL & OPTICAL CLINIC";
@@ -15,10 +16,12 @@ const Footer = () => {
                 
                 <div className="footer-column footer-brand">
                     <div className="footer-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <img src={Logo} alt='logo' className='logo' />
+                        {/*custom logo svg*/}
+                        {/* <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-3.376 0-6.15-2.585-6.5-5.917C5.85 12.083 8.624 9.5 12 9.5s6.15 2.583 6.5 5.583C18.15 17.415 15.376 20 12 20zM12 11c-1.1 0-2 .9-2 2v3c0 1.1.9 2 2 2s2-.9 2-2v-3c0-1.1-.9-2-2-2z" fill="#00c4cc"/>
                             <path d="M12 9.5c3.376 0 6.15 2.583 6.5 5.583C18.15 17.415 15.376 20 12 20v-8c0-1.1-.9-2-2-2v-1.5z" fill="#ffffff"/>
-                        </svg>
+                        </svg> */}
                     </div>
                     <h3 className="clinic-name">{clinicName}</h3>
                     <p className="tagline">Expert Care, Brighter Smiles</p>

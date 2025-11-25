@@ -19,29 +19,28 @@ const Services = () => {
     autoplaySpeed: 3000, 
     cssEase: "linear", 
     arrows: false, 
-    responsive: [ 
-       {
-        breakpoint: 480,
+    responsive:[
+      {
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
         }
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 1 
+          slidesToScroll: 2,
+          initialSlide: 2
         }
       },
       {
-        breakpoint: 1024,
+        breakpoint: 480,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
+          slidesToShow: 1,
+          slidesToScroll: 1
         }
       }
     ]
@@ -105,7 +104,7 @@ const Services = () => {
   ];
 
   return (
-    <div className='services-section'>
+    <div className='services-section' id='services'>
       <h2 className='services-main-title'>Our Services</h2>
       <div className='services-carousel-container'>
         <Slider {...settings}>

@@ -3,7 +3,7 @@ import './About.css'; // Link to your CSS file
 
 const About = () => {
   return (
-    <div className='about-section-container'>
+    <div className='about-section-container' id='about'>
       <div className='about-content'>
         <h2 className='about-main-title'>WELCOME TO GDIC</h2>
         <h3 className='about-subtitle'>ABOUT US</h3>
