@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import './Services.css'; 
 import conservativeImage from '../../assests/images/conservative.jpg'; 
 import aestheticsImage from '../../assests/images/aesthetics.jpg';
-import orthodonticsImage from '../../assests/images/orthodontics.jpg'; 
+import orthodonticsImage from '../../assests/images/orthodontics.jpeg'; 
 import service4Image from '../../assests/images/conservative.jpg'; 
 import service5Image from '../../assests/images/aesthetics.jpg'; 
 
