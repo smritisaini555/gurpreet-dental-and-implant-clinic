@@ -4,7 +4,7 @@ import aestheticsImage from '../../assests/images/aesthetics.jpg';
 import orthodonticsImage from '../../assests/images/orthodontics.jpg';
 import service4Image from '../../assests/images/Oral-Surgeon-3.jpg';
 import service5Image from '../../assests/images/image_first_389_x_259.jpg';
-import "./Services.css";
+import "./Services.scss";
 
 const serviceData = [
   {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './About.css'; // Link to your CSS file
+import './About.scss'; // Link to your CSS file
 
 const About = () => {
   const handleScrollToContact = () => {

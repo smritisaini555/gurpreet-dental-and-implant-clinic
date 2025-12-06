@@ -1,0 +1,231 @@
+// --- SCSS Variables ---
+$bg-black: #000000;
+$text-white: #ffffff;
+$card-bg: #1a1a1a;
+$image-bg: #333;
+$subtitle-color: #999999;
+$description-color: #cccccc;
+$accent-color: #00c4cc;
+$max-width-desktop: 1200px;
+$padding-desktop: 40px;
+$card-margin: 10px;
+$card-transition: 0.3s ease;
+$scrollbar-thumb: #888888;
+$scrollbar-track: #333333;
+
+.services-section {
+    background-color: $bg-black;
+    color: $text-white;
+    padding: 80px 0;
+    text-align: center;
+    overflow: hidden;
+
+    .services-main-title {
+        font-size: 2.8em;
+        font-weight: 600;
+        margin-bottom: 60px;
+        color: $text-white;
+    }
+
+    .services-carousel-container {
+        max-width: $max-width-desktop;
+        margin: 0 auto;
+        padding: 0 $padding-desktop;
+    }
+
+    .carousel-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .carousel-view-area {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .services-track {
+        display: flex;
+        width: 100%;
+    }
+
+    .service-card-wrapper {
+        flex: 0 0 calc(33.333% - ($card-margin * 2));
+        width: calc(33.333% - ($card-margin * 2));
+        margin: 0 $card-margin;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+    }
+
+    .service-card {
+        background-color: $card-bg;
+        border-radius: 8px;
+        overflow: hidden;
+        padding-bottom: 20px;
+        height: 550px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        transition: transform $card-transition;
+        position: relative;
+        width: 100%;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            box-shadow: inset 5px 0 0 0 $accent-color;
+            border-radius: 8px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-image-container {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: $image-bg;
+        }
+
+        .service-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-card-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            padding: 0 15px;
+            color: $text-white;
+        }
+
+        .service-card-subtitle {
+            font-size: 0.9em;
+            color: $subtitle-color;
+            margin-bottom: 20px;
+            padding: 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-card-description {
+            font-size: 0.9em;
+            color: $description-color;
+            line-height: 1.6;
+            padding: 0 25px;
+            text-align: left;
+            flex-grow: 1;
+            overflow-y: auto;
+            padding-right: 35px;
+            padding-top: 0;
+            margin-top: 0;
+
+            .description-point {
+                margin-top: 0;
+                margin-bottom: 8px;
+                text-align: left;
+
+                strong {
+                    color: $text-white;
+                    font-weight: 600;
+                }
+            }
+
+            p {
+                margin-top: 0;
+                margin-bottom: 8px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $scrollbar-thumb;
+                border-radius: 4px;
+                border: 2px solid transparent;
+                background-clip: padding-box;
+
+                &:hover {
+                    background-color: lighten($scrollbar-thumb, 10%);
+                }
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: $scrollbar-track;
+                border-radius: 4px;
+            }
+        }
+    }
+
+    .carousel-prev,
+    .carousel-next,
+    .carousel-dots {
+        display: none;
+    }
+}
+
+
+// --- RESPONSIVENESS ---
+
+/* Tablet View: Show 2 cards */
+@media (max-width: 1024px) {
+    .services-section {
+        .services-carousel-container {
+            padding: 0 10px;
+        }
+
+        .service-card-wrapper {
+            flex: 0 0 calc(50% - 20px);
+            width: calc(50% - 20px);
+        }
+    }
+}
+
+/* Mobile View: Show 1 card */
+@media (max-width: 500px) {
+    .services-section {
+        .services-main-title {
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+
+        .services-carousel-container {
+            padding: 0;
+        }
+
+        .carousel-wrapper {
+            padding: 0 10px;
+        }
+
+        .service-card-wrapper {
+            flex: 0 0 calc(100% - 20px);
+            width: calc(100% - 20px);
+        }
+
+        .service-card {
+            height: 500px;
+        }
+    }
+}

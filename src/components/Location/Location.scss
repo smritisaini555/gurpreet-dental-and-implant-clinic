@@ -1,0 +1,98 @@
+// --- SCSS Variables ---
+$bg-black: #000000;
+$text-white: #ffffff;
+$text-light-grey: #cccccc;
+$accent-color: #00c4cc;
+$closed-color: #e74c3c;
+$max-width-container: 1200px;
+$padding-horizontal: 20px;
+
+.location-section {
+    background-color: $bg-black;
+    color: $text-white;
+    padding: 0 0 80px;
+    text-align: center;
+}
+
+.location-main-title {
+    font-size: 2.8em;
+    font-weight: 600;
+    color: $text-white;
+    text-align: left;
+    max-width: $max-width-container;
+    margin: 0 auto 60px;
+    padding: 0 $padding-horizontal;
+}
+
+.map-container {
+    max-width: $max-width-container;
+    margin: 0 auto 60px auto;
+    padding: 0 $padding-horizontal;
+
+    iframe {
+        width: 100%;
+        display: block;
+    }
+}
+
+.location-details-container {
+    max-width: $max-width-container;
+    margin: 0 auto;
+    padding: 0 $padding-horizontal;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    gap: 40px;
+
+    .location-column {
+        flex: 1;
+        min-width: 250px;
+
+        .column-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: $text-white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .column-content {
+            p {
+                font-size: 1em;
+                color: $text-light-grey;
+                line-height: 1.5;
+                margin-bottom: 8px;
+            }
+
+            a {
+                color: $accent-color;
+                text-decoration: none;
+            }
+
+            .hours-closed {
+                color: $closed-color;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .location-details-container {
+        flex-direction: column;
+        gap: 40px;
+        
+        .location-column {
+            min-width: 100%;
+            text-align: left;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .location-main-title {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+}

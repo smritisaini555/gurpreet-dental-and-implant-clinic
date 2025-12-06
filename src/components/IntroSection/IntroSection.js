@@ -1,5 +1,5 @@
 import React from 'react';
-import './IntroSection.css';
+import './IntroSection.scss';
 
 const IntroSection = () => {
   const handleScrollToContact = () => {

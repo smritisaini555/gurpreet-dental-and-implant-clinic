@@ -1,7 +1,15 @@
+// --- SCSS Variables for Local Colors ---
+$white: #ffffff;
+$off-white: #d1d1d1;
+$black: #000000;
+$primary-button-bg: #fce7db;
+$primary-button-hover: #e0d0c5;
+$dark-overlay: rgba(0, 0, 0, 0.6);
+
 .about-section-container {
     height: 100vh;
     background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        linear-gradient($dark-overlay, $dark-overlay),
         url('../../assests/images/about-background-image.jpg');
     background-size: cover;
     background-position: center;
@@ -15,37 +23,37 @@
 }
 
 .about-content {
-    color: #ffffff;
+    color: $white;
     text-align: left;
     z-index: 2;
-}
-
-.about-main-title {
-    font-size: 3.2em;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.about-subtitle {
-    font-size: 1.2em;
-    font-weight: 500;
-    color: #d1d1d1;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.about-description {
-    font-size: 1em;
-    line-height: 1.6;
-    margin-bottom: 40px;
-    color: #d1d1d1;
-}
-
-.about-buttons {
-    display: flex;
-    gap: 20px;
+    
+    .about-main-title {
+        font-size: 3.2em;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: $white;
+    }
+    
+    .about-subtitle {
+        font-size: 1.2em;
+        font-weight: 500;
+        color: $off-white;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .about-description {
+        font-size: 1em;
+        line-height: 1.6;
+        margin-bottom: 40px;
+        color: $off-white;
+    }
+    
+    .about-buttons {
+        display: flex;
+        gap: 20px;
+    }
 }
 
 .aboutbutton {
@@ -60,25 +68,31 @@
 }
 
 .read-more-button {
-    background-color: #fce7db;
-    color: #000000;
-    border: 1px solid #fce7db;
-}
-
-.read-more-button:hover {
-    background-color: #e0d0c5;
-    border-color: #e0d0c5;
+    @extend .aboutbutton;
+    background-color: $primary-button-bg;
+    color: $black;
+    border: 1px solid $primary-button-bg;
+    
+    &:hover {
+        background-color: $primary-button-hover;
+        border-color: $primary-button-hover;
+    }
 }
 
 .visit-us-button {
+    @extend .aboutbutton;
     background-color: transparent;
-    color: #ffffff;
-    border: 1px solid #ffffff;
+    color: $white;
+    border: 1px solid $white;
+    
+    &:hover {
+        background-color: $white;
+        color: $black;
+    }
 }
 
-.visit-us-button:hover {
-    background-color: #ffffff;
-    color: #000000;
+.button {
+    
 }
 
 @media (max-width: 992px) {
@@ -108,19 +122,19 @@
         max-width: 100%;
         text-align: center;
     }
-
+    
     .about-main-title {
         font-size: 2.2em;
     }
-
+    
     .about-subtitle {
         font-size: 1.1em;
     }
-
+    
     .about-description {
         font-size: 0.9em;
     }
-
+    
     .about-buttons {
         flex-direction: column;
         align-items: center;

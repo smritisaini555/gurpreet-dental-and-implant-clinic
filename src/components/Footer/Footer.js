@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.css'; 
+import './Footer.scss'; 
 import { MapPin, Phone, Mail, Facebook, Instagram, Globe } from 'lucide-react';
 import Logo from '../../assests/icons/Logo.jpeg';
 
