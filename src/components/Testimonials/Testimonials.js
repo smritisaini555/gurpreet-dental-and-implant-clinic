@@ -9,7 +9,7 @@ const testimonialData = [
     /* ... 5 testimonials ... */
     { id: 1, image: userPlaceholder, quote: "Gurpreet Dental & Implant Centre gave me a flawless smile. The aesthetic results were far beyond my expectations. Highly professional and caring team!", name: 'Arjun Singh', designation: 'Patient - Aesthetics', rating: 5 },
     { id: 2, image: userPlaceholder, quote: "The root canal procedure was painless and quick. Dr. Gurpreet explained every step clearly. Excellent conservative and endodontic care.", name: 'Priya Sharma', designation: 'Patient - Endodontics', rating: 5 },
-    { id: 3, image: userPlaceholder, quote: "My child's orthodontic treatment was managed perfectly. They are amazing with kids. Highly recommend for paediatric dentistry.", name: 'Karan Mehra', designation: 'Parent - Orthodontics', rating: 4 },
+    { id: 3, image: userPlaceholder, quote: "My child's orthodontic treatment was managed perfectly. They are amazing with kids. Highly recommend for paediatric dentistry.", name: 'Karan Mehra', designation: 'Patient - Orthodontics', rating: 4 },
     { id: 4, image: userPlaceholder, quote: "I received a dental implant here, right after periodontics advice. The entire surgical process was smooth and hassle-free.", name: 'Harleen Kaur', designation: 'Patient - Oral Surgery', rating: 5 },
     { id: 5, image: userPlaceholder, quote: "Routine cleaning and preventive care were thorough. My teeth feel cleaner than ever, and I appreciate the focus on long-term health.", name: 'Rajesh Verma', designation: 'Patient - Preventive Dentistry', rating: 4 }
 ];

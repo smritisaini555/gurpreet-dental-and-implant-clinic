@@ -58,9 +58,9 @@ const Footer = () => {
 
             <div className="footer-bottom-bar">
                 <p className="copyright">© {copyrightYear} {clinicName}. All rights reserved.</p>
-                <a className="builder-credit" href="https://website.com" target="_blank" rel="noopener noreferrer">
+                <a className="builder-credit" href="https://my-portfolio-zeta-eight-19.vercel.app/" target="_blank" rel="noopener noreferrer">
                     <div className='footer-logo-small'><Globe size={18} /></div> 
-                    Website Builder Credit
+                    Built by Smriti Saini
                 </a>
             </div>
         </footer>
