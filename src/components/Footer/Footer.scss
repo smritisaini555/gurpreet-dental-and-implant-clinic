@@ -1,28 +1,21 @@
-// --- SCSS Variables for Footer Colors ---
-$footer-bg: #0d0d0d;
-$footer-text-light: #cccccc;
-$footer-text-dark: #777777;
-$footer-border-dark: #333333;
-$accent-color: #00c4cc;
-$white: #ffffff;
-$tagline-color: #999999;
+@import '../../styles/variables.scss';
 
 .footer-section {
     background-color: $footer-bg;
-    color: $footer-text-light;
+    color: $text-light-grey;
     padding: 60px 20px 20px 20px;
     border-top: 3px solid $accent-color;
 }
 
 .footer-content-wrapper {
-    max-width: 1200px;
+    max-width: $max-width-container;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
     padding-bottom: 40px;
-    border-bottom: 1px solid $footer-border-dark;
+    border-bottom: 1px solid $dark-grey;
     gap: 40px;
 }
 
@@ -45,7 +38,7 @@ $tagline-color: #999999;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: center;
+    align-items: $center-align;
 
     .footer-logo {
         margin-bottom: 10px;
@@ -60,8 +53,8 @@ $tagline-color: #999999;
     }
 
     .logo {
-        width: 100%;
-        height: 100%;
+        width: $value-100percentage;
+        height: $value-100percentage;
         object-fit: cover;
         display: block;
         border-radius: 50%;
@@ -91,7 +84,7 @@ $tagline-color: #999999;
         margin-top: 10px;
 
         a {
-            color: $footer-text-light;
+            color: $text-light-grey;
             transition: color 0.3s ease, transform 0.3s ease;
 
             &:hover {
@@ -107,7 +100,7 @@ $tagline-color: #999999;
 
     .contact-item {
         display: flex;
-        align-items: center;
+        align-items: $center-align;
         font-size: 0.95em;
         margin-bottom: 10px;
     }
@@ -119,7 +112,7 @@ $tagline-color: #999999;
     }
 
     a {
-        color: $footer-text-light;
+        color: $text-light-grey;
         text-decoration: none;
         transition: color 0.3s ease;
 
@@ -130,11 +123,11 @@ $tagline-color: #999999;
 }
 
 .footer-bottom-bar {
-    max-width: 1200px;
+    max-width: $max-width-container;
     margin: 20px auto 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: $center-align;
     flex-wrap: wrap;
     padding-top: 10px;
     
@@ -146,7 +139,7 @@ $tagline-color: #999999;
 
     .builder-credit {
         display: flex;
-        align-items: center;
+        align-items: $center-align;
         gap: 5px;
         font-size: 0.8em;
         color: $footer-text-dark;
@@ -167,42 +160,42 @@ $tagline-color: #999999;
 @media (max-width: 768px) {
     .footer-content-wrapper {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: $center-align;
+        text-align: $center-align;
         padding-bottom: 30px;
     }
     
     .footer-column {
-        flex-basis: 100%;
+        flex-basis: $value-100percentage;
         min-width: unset;
-        width: 100%;
+        width: $value-100percentage;
         margin-bottom: 30px;
     }
 
     .footer-brand {
-        align-items: center;
-        text-align: center;
+        align-items: $center-align;
+        text-align: $center-align;
     }
     
     .footer-social-icons {
-        text-align: center;
+        text-align: $center-align;
         
         .social-links-column {
-            justify-content: center;
+            justify-content: $center-align;
         }
     }
 
     .footer-contact-info {
-        text-align: center;
+        text-align: $center-align;
         
         .contact-item {
-            justify-content: center;
+            justify-content: $center-align;
         }
     }
 
     .footer-bottom-bar {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: $flex-column;
+        text-align: $center-align;
         gap: 15px;
     }
 }

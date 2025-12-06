@@ -1,61 +1,48 @@
-// --- SCSS Variables ---
-$bg-black: #000000;
-$text-white: #ffffff;
-$card-bg: #1a1a1a;
-$image-bg: #333;
-$subtitle-color: #999999;
-$description-color: #cccccc;
-$accent-color: #00c4cc;
-$max-width-desktop: 1200px;
-$padding-desktop: 40px;
-$card-margin: 10px;
-$card-transition: 0.3s ease;
-$scrollbar-thumb: #888888;
-$scrollbar-track: #333333;
+@import '../../styles/variables.scss';
 
 .services-section {
-    background-color: $bg-black;
-    color: $text-white;
+    background-color: $black;
+    color: $white;
     padding: 80px 0;
-    text-align: center;
+    text-align: $center-align;
     overflow: hidden;
 
     .services-main-title {
         font-size: 2.8em;
         font-weight: 600;
         margin-bottom: 60px;
-        color: $text-white;
+        color: $white;
     }
 
     .services-carousel-container {
-        max-width: $max-width-desktop;
+        max-width: $max-width-container;
         margin: 0 auto;
-        padding: 0 $padding-desktop;
+        padding: 0 40px;
     }
 
     .carousel-wrapper {
         position: relative;
         display: flex;
-        align-items: center;
+        align-items: $center-align;
     }
 
     .carousel-view-area {
         overflow: hidden;
-        width: 100%;
+        width: $value-100percentage;
     }
 
     .services-track {
         display: flex;
-        width: 100%;
+        width: $value-100percentage;
     }
 
     .service-card-wrapper {
-        flex: 0 0 calc(33.333% - ($card-margin * 2));
-        width: calc(33.333% - ($card-margin * 2));
-        margin: 0 $card-margin;
+        flex: 0 0 calc(33.333% - (10px * 2));
+        width: calc(33.333% - (10px * 2));
+        margin: 0 10px;
         box-sizing: border-box;
         display: flex;
-        justify-content: center;
+        justify-content: $center-align;
     }
 
     .service-card {
@@ -65,21 +52,21 @@ $scrollbar-track: #333333;
         padding-bottom: 20px;
         height: 550px;
         display: flex;
-        flex-direction: column;
+        flex-direction: $flex-column;
         justify-content: flex-start;
-        align-items: center;
-        text-align: center;
-        transition: transform $card-transition;
+        align-items: $center-align;
+        text-align: $center-align;
+        transition: transform $transition-speed;
         position: relative;
-        width: 100%;
+        width: $value-100percentage;
 
         &::before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: $value-100percentage;
+            height: $value-100percentage;
             background: transparent;
             box-shadow: inset 5px 0 0 0 $accent-color;
             border-radius: 8px;
@@ -92,18 +79,18 @@ $scrollbar-track: #333333;
         }
 
         .service-image-container {
-            width: 100%;
+            width: $value-100percentage;
             overflow: hidden;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: $center-align;
+            align-items: $center-align;
             margin-bottom: 20px;
-            background-color: $image-bg;
+            background-color: $dark-grey;
         }
 
         .service-card-image {
-            width: 100%;
-            height: 100%;
+            width: $value-100percentage;
+            height: $value-100percentage;
             object-fit: cover;
             display: block;
         }
@@ -113,12 +100,12 @@ $scrollbar-track: #333333;
             font-weight: 600;
             margin-bottom: 10px;
             padding: 0 15px;
-            color: $text-white;
+            color: $white;
         }
 
         .service-card-subtitle {
             font-size: 0.9em;
-            color: $subtitle-color;
+            color: $tagline-color;
             margin-bottom: 20px;
             padding: 0 15px;
             text-transform: uppercase;
@@ -127,7 +114,7 @@ $scrollbar-track: #333333;
 
         .service-card-description {
             font-size: 0.9em;
-            color: $description-color;
+            color: $text-light-grey;
             line-height: 1.6;
             padding: 0 25px;
             text-align: left;
@@ -143,7 +130,7 @@ $scrollbar-track: #333333;
                 text-align: left;
 
                 strong {
-                    color: $text-white;
+                    color: $white;
                     font-weight: 600;
                 }
             }
@@ -173,7 +160,7 @@ $scrollbar-track: #333333;
             }
 
             &::-webkit-scrollbar-track {
-                background-color: $scrollbar-track;
+                background-color: $dark-grey;
                 border-radius: 4px;
             }
         }
@@ -220,8 +207,8 @@ $scrollbar-track: #333333;
         }
 
         .service-card-wrapper {
-            flex: 0 0 calc(100% - 20px);
-            width: calc(100% - 20px);
+            flex: 0 0 calc($value-100percentage - 20px);
+            width: calc($value-100percentage - 20px);
         }
 
         .service-card {

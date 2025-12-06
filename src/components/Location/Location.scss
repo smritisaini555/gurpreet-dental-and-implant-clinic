@@ -1,36 +1,29 @@
-// --- SCSS Variables ---
-$bg-black: #000000;
-$text-white: #ffffff;
-$text-light-grey: #cccccc;
-$accent-color: #00c4cc;
-$closed-color: #e74c3c;
-$max-width-container: 1200px;
-$padding-horizontal: 20px;
+@import '../../styles/variables.scss';
 
 .location-section {
-    background-color: $bg-black;
-    color: $text-white;
+    background-color: $black;
+    color: $white;
     padding: 0 0 80px;
-    text-align: center;
+    text-align: $center-align;
 }
 
 .location-main-title {
     font-size: 2.8em;
     font-weight: 600;
-    color: $text-white;
+    color: $white;
     text-align: left;
     max-width: $max-width-container;
     margin: 0 auto 60px;
-    padding: 0 $padding-horizontal;
+    padding: 0 $padding-20;
 }
 
 .map-container {
     max-width: $max-width-container;
     margin: 0 auto 60px auto;
-    padding: 0 $padding-horizontal;
+    padding: 0 $padding-20;
 
     iframe {
-        width: 100%;
+        width: $value-100percentage;
         display: block;
     }
 }
@@ -38,7 +31,7 @@ $padding-horizontal: 20px;
 .location-details-container {
     max-width: $max-width-container;
     margin: 0 auto;
-    padding: 0 $padding-horizontal;
+    padding: 0 $padding-20;
     display: flex;
     justify-content: space-between;
     text-align: left;
@@ -52,7 +45,7 @@ $padding-horizontal: 20px;
             font-size: 1.5em;
             font-weight: 600;
             margin-bottom: 20px;
-            color: $text-white;
+            color: $white;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -80,11 +73,11 @@ $padding-horizontal: 20px;
 
 @media (max-width: 900px) {
     .location-details-container {
-        flex-direction: column;
+        flex-direction: $flex-column;
         gap: 40px;
         
         .location-column {
-            min-width: 100%;
+            min-width: $value-100percentage;
             text-align: left;
         }
     }

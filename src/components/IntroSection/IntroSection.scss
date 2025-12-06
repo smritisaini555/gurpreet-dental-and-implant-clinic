@@ -1,22 +1,18 @@
-// --- SCSS Variables ---
-$white: #ffffff;
-$black: #000000;
-$dark-overlay: rgba(0, 0, 0, 0.4);
-$transition-speed: 0.3s ease;
+@import '../../styles/variables.scss';
 
 .intro-section-container {
-    width: 100%;
-    min-height: 100vh;
+    width: $value-100percentage;
+    min-height: $value-100vh;
     background-size: cover;
-    background-position: center;
+    background-position: $center-align;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-image:
-        linear-gradient($dark-overlay, $dark-overlay),
+        linear-gradient($intro-dark-overlay, $intro-dark-overlay),
         url('../../assests/images/intro-background.jpeg');
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: $center-align;
+    align-items: $center-align;
     position: relative;
     z-index: 1;
 
@@ -25,14 +21,14 @@ $transition-speed: 0.3s ease;
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $dark-overlay;
+        width: $value-100percentage;
+        height: $value-100percentage;
+        background-color: $intro-dark-overlay;
         z-index: -1;
     }
 
     .intro-content {
-        text-align: center;
+        text-align: $center-align;
         color: $white;
         max-width: 800px;
         padding: 20px;
@@ -47,7 +43,7 @@ $transition-speed: 0.3s ease;
 
         .intro-buttons {
             display: flex;
-            justify-content: center;
+            justify-content: $center-align;
             gap: 20px;
         }
     }
@@ -88,7 +84,7 @@ $transition-speed: 0.3s ease;
 
 @media (max-width: 1024px) {
     .intro-section-container {
-        background-position: center center;
+        background-position: $center-align $center-align;
         background-size: contain;
         background-color: $black;
     }
@@ -103,8 +99,8 @@ $transition-speed: 0.3s ease;
             }
 
             .intro-buttons {
-                flex-direction: column;
-                align-items: center;
+                flex-direction: $flex-column;
+                align-items: $center-align;
                 gap: 15px;
             }
         }

@@ -1,39 +1,34 @@
-// --- SCSS Variables ---
-$header-bg: #000000;
-$header-text: #ffffff;
-$accent-color: #00c4cc;
-$border-light: #252424;
-$shadow-color: rgb(52 50 50 / 70%);
+@import '../../styles/variables.scss';
 
 :root {
     --header-height: 110px;
 }
 
 .site-header {
-    background-color: $header-bg;
-    color: $header-text;
+    background-color: $black;
+    color: $white;
     padding: 30px 0;
     border-top: 5px solid $accent-color;
     border-bottom: 1px solid $border-light;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: $value-100percentage;
     z-index: 1000;
-    box-shadow: 0 4px 12px $shadow-color;
+    box-shadow: 0 4px 12px rgb(52 50 50 / 70%);
 
     .header-container {
-        max-width: 1200px;
+        max-width: $max-width-container;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: $center-align;
         padding: 0 20px;
     }
 
     .logo-section {
         display: flex;
-        align-items: center;
+        align-items: $center-align;
         gap: 10px;
         order: 1;
 
@@ -43,8 +38,8 @@ $shadow-color: rgb(52 50 50 / 70%);
         }
 
         .logo {
-            width: 100%;
-            height: 100%;
+            width: $value-100percentage;
+            height: $value-100percentage;
             object-fit: cover;
             display: block;
             border-radius: 50%;
@@ -70,7 +65,7 @@ $shadow-color: rgb(52 50 50 / 70%);
         }
 
         a {
-            color: $header-text;
+            color: $white;
             text-decoration: none;
             font-size: 16px;
             font-weight: 400;
@@ -78,7 +73,7 @@ $shadow-color: rgb(52 50 50 / 70%);
             position: relative;
 
             &.active {
-                border-bottom: 2px solid $header-text;
+                border-bottom: 2px solid $white;
             }
         }
     }
@@ -91,7 +86,7 @@ $shadow-color: rgb(52 50 50 / 70%);
 
     .site-header {
         .header-container {
-            flex-direction: column;
+            flex-direction: $flex-column;
             align-items: flex-start;
         }
 
@@ -102,9 +97,9 @@ $shadow-color: rgb(52 50 50 / 70%);
 
         .main-nav {
             order: 2;
-            width: 100%;
+            width: $value-100percentage;
             display: flex;
-            justify-content: center;
+            justify-content: $center-align;
 
             ul {
                 gap: 15px;

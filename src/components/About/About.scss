@@ -1,21 +1,15 @@
-// --- SCSS Variables for Local Colors ---
-$white: #ffffff;
-$off-white: #d1d1d1;
-$black: #000000;
-$primary-button-bg: #fce7db;
-$primary-button-hover: #e0d0c5;
-$dark-overlay: rgba(0, 0, 0, 0.6);
+@import '../../styles/variables.scss';
 
 .about-section-container {
-    height: 100vh;
+    height: $value-100vh;
     background-image: 
         linear-gradient($dark-overlay, $dark-overlay),
         url('../../assests/images/about-background-image.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: $center-align;
     background-repeat: no-repeat;
     display: flex;
-    align-items: center;
+    align-items: $center-align;
     justify-content: flex-start;
     padding: 0 5%;
     position: relative;
@@ -119,8 +113,8 @@ $dark-overlay: rgba(0, 0, 0, 0.6);
     }
 
     .about-content {
-        max-width: 100%;
-        text-align: center;
+        max-width: $value-100percentage;
+        text-align: $center-align;
     }
     
     .about-main-title {
@@ -137,8 +131,8 @@ $dark-overlay: rgba(0, 0, 0, 0.6);
     
     .about-buttons {
         flex-direction: column;
-        align-items: center;
-        width: 100%;
+        align-items: $center-align;
+        width: $value-100percentage;
     }
 
     .button {

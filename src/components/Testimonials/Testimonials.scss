@@ -1,37 +1,28 @@
-/* Define the primary green accent gradient */
-$green-accent-start: #00c4cc;
-$green-accent-end: #7ca691;
-$dark-card-bg: #1a1a1a;
-$section-bg: #000000;
-$text-light: #cccccc;
-$text-dark: #666666;
-$border-thickness: 3px;
-$border-radius-card: 20px;
-$border-radius-card-outer: $border-radius-card + 3;
+@import '../../styles/variables.scss';
 
 .green-gradient {
-    background: linear-gradient(135deg, $green-accent-start, $green-accent-end);
+    background: linear-gradient(135deg, $accent-color, $green-accent-end);
 }
 
 .testimonials-section {
-    background-color: $section-bg;
-    color: #ffffff;
+    background-color: $black;
+    color: $white;
     padding: 0 0 80px;
-    text-align: center;
+    text-align: $center-align;
     overflow: hidden;
 
     .testimonials-main-title {
         font-size: 2.8em;
         font-weight: 600;
         margin-bottom: 60px;
-        color: #ffffff;
+        color: $white;
 
         &::before {
             content: "Our Clients";
             display: block;
             font-size: 0.5em;
             font-style: italic;
-            color: $green-accent-start;
+            color: $accent-color;
             margin-bottom: 5px;
             font-family: serif;
         }
@@ -39,17 +30,17 @@ $border-radius-card-outer: $border-radius-card + 3;
 }
 
 .testimonials-carousel-container {
-    max-width: 1200px;
+    max-width: $max-width-container;
     margin: 6rem auto 0;
     padding: 0 40px;
 
     .carousel-wrapper {
         position: relative;
         display: flex;
-        align-items: center;
+        align-items: $center-align;
 
         .carousel-view-area {
-            width: 100%;
+            width: $value-100percentage;
             overflow: hidden;
             padding-top: 60px;
             padding-bottom: 40px;
@@ -59,7 +50,7 @@ $border-radius-card-outer: $border-radius-card + 3;
             .testimonials-track {
                 display: flex;
                 transition: transform 0.4s ease-in-out;
-                width: 100%;
+                width: $value-100percentage;
 
                 .testimonial-card-wrapper {
                     /* Desktop Margin Setup (3 slides per view) */
@@ -68,7 +59,7 @@ $border-radius-card-outer: $border-radius-card + 3;
                     margin: 0 10px;
                     box-sizing: border-box;
                     display: flex;
-                    justify-content: center;
+                    justify-content: $center-align;
                 }
             }
         }
@@ -76,17 +67,17 @@ $border-radius-card-outer: $border-radius-card + 3;
 }
 
 .testimonial-card {
-    background-color: $dark-card-bg;
-    border-radius: $border-radius-card;
+    background-color: $card-bg;
+    border-radius: 20px;
     padding: 100px 40px 0 40px;
-    text-align: center;
+    text-align: $center-align;
     min-height: 200px;
     position: relative;
-    width: 100%;
+    width: $value-100percentage;
     box-shadow: none;
     border: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: $flex-column;
     z-index: 1;
 
     &::before {
@@ -96,7 +87,7 @@ $border-radius-card-outer: $border-radius-card + 3;
         left: -$border-thickness;
         right: -$border-thickness;
         bottom: -$border-thickness;
-        border-radius: $border-radius-card-outer;
+        border-radius: 23px;
         z-index: -1;
         box-shadow: 0 0 10px rgba(0, 204, 204, 0.5);
     }
@@ -106,7 +97,7 @@ $border-radius-card-outer: $border-radius-card + 3;
         top: -50px;
         left: 50%;
         transform: translateX(-50%);
-        width: 100%;
+        width: $value-100percentage;
         z-index: 20;
 
         .profile-image-container {
@@ -115,12 +106,12 @@ $border-radius-card-outer: $border-radius-card + 3;
             margin: 0 auto 10px;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 0 0 5px #ffffff;
-            background: #ffffff;
+            box-shadow: 0 0 0 5px $white;
+            background: $white;
 
             .profile-image {
-                width: 100%;
-                height: 100%;
+                width: $value-100percentage;
+                height: $value-100percentage;
                 object-fit: cover;
                 display: block;
             }
@@ -130,7 +121,7 @@ $border-radius-card-outer: $border-radius-card + 3;
             font-size: 1.4em;
             font-weight: 700;
             margin: 5px 0 0;
-            color: $green-accent-start;
+            color: $accent-color;
         }
 
         .testimonial-designation {
@@ -143,7 +134,7 @@ $border-radius-card-outer: $border-radius-card + 3;
     .testimonial-quote {
         flex-grow: 1;
         font-size: 1em;
-        color: $text-light;
+        color: $text-light-grey;
         line-height: 1.6;
         margin: 20px 0 30px;
         text-align: left;
@@ -156,7 +147,7 @@ $border-radius-card-outer: $border-radius-card + 3;
     .quote-right {
         font-size: 3.5em;
         font-family: serif;
-        color: $green-accent-start;
+        color: $accent-color;
         position: absolute;
         height: 0;
         line-height: 0;
@@ -179,8 +170,8 @@ $border-radius-card-outer: $border-radius-card + 3;
         margin-top: auto;
         padding-bottom: 0;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: $center-align;
+        align-items: $center-align;
     }
 
     .rating-container {
@@ -191,13 +182,13 @@ $border-radius-card-outer: $border-radius-card + 3;
         z-index: 10;
         padding: 10px 30px;
         border-radius: 30px;
-        background: linear-gradient(90deg, $green-accent-start, $green-accent-end);
+        background: linear-gradient(90deg, $accent-color, $green-accent-end);
         box-shadow: 0 5px 15px rgba(0, 196, 204, 0.6);
         margin: 0;
 
         .testimonial-rating-stars {
             font-size: 1.2em;
-            color: #ffffff;
+            color: $white;
             display: flex;
             gap: 4px;
 
@@ -240,8 +231,8 @@ $border-radius-card-outer: $border-radius-card + 3;
     }
 
     .testimonials-carousel-container .carousel-wrapper .carousel-view-area .testimonials-track .testimonial-card-wrapper {
-        flex: 0 0 calc(100% - 20px);
-        width: calc(100% - 20px);
+        flex: 0 0 calc($value-100percentage - 20px);
+        width: calc($value-100percentage - 20px);
     }
 
     .testimonial-card {
