@@ -3,6 +3,7 @@
     color: #ffffff;
     padding: 80px 0;
     text-align: center;
+    overflow: hidden;
 }
 
 .services-main-title {
@@ -15,12 +16,34 @@
 .services-carousel-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 40px;
+}
+
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
     padding: 0 20px;
 }
 
+.carousel-view-area {
+    overflow: hidden;
+    width: 100%;
+}
+
+.services-track {
+    display: flex;
+    width: 100%;
+}
+
 .service-card-wrapper {
-    padding: 0 10px;
+    /* Base width for 3 cards + gutter (Desktop) */
+    flex: 0 0 calc(33.333% - 20px);
+    width: calc(33.333% - 20px);
+    margin: 0 10px;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
 }
 
 .service-card {
@@ -36,6 +59,7 @@
     text-align: center;
     transition: transform 0.3s ease;
     position: relative;
+    width: 100%;
 }
 
 .service-card::before {
@@ -56,18 +80,9 @@
     transform: translateY(-5px);
 }
 
-.service-image-container,
-.service-card-title,
-.service-card-subtitle,
-.service-card-description {
-    position: relative;
-    z-index: 1;
-}
-
-
 .service-image-container {
     width: 100%;
-    height: 220px;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,7 +98,7 @@
 }
 
 .service-card-title {
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: 600;
     margin-bottom: 10px;
     padding: 0 15px;
@@ -110,6 +125,17 @@
     padding-right: 35px;
     padding-top: 0;
     margin-top: 0;
+}
+
+.service-card-description .description-point {
+    margin-top: 0;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.service-card-description .description-point strong {
+    color: #ffffff;
+    font-weight: 600;
 }
 
 .service-card-description p {
@@ -141,84 +167,51 @@
     background-color: #aaaaaa;
 }
 
-.slick-dots {
-    bottom: -40px;
-}
-
-.slick-dots li button:before {
-    font-size: 12px;
-    color: #555555;
-}
-
-.slick-dots li.slick-active button:before {
-    color: #ffffff;
-}
-
-.slick-prev:before, .slick-next:before {
-    color: #ffffff;
-    font-size: 30px;
-}
-
-.slick-prev {
-    left: -40px;
-    z-index: 10;
-}
-
-.slick-next {
-    right: -40px;
-    z-index: 10;
-}
-
-@media (max-width: 768px) {
-    .slick-prev, .slick-next {
-        display: none !important;
-    }
-    .services-carousel-container {
-        padding: 0;
-    }
+.carousel-prev,
+.carousel-next,
+.carousel-dots {
+    display: none;
 }
 
 
+/* --- RESPONSIVENESS --- */
+
+/* Tablet View: Show 2 cards */
 @media (max-width: 1024px) {
-    .services-main-title {
-        font-size: 2.5em;
+
+    .services-carousel-container {
+        padding: 0 10px;
+    }
+
+    .service-card-wrapper {
+        flex: 0 0 calc(50% - 20px);
+        width: calc(50% - 20px);
     }
 }
 
-@media (max-width: 768px) {
-    .services-section {
-        padding: 60px 0;
-    }
+/* Mobile View: Show 1 card */
+@media (max-width: 500px) {
     .services-main-title {
         font-size: 2em;
         margin-bottom: 40px;
     }
-    .service-card-wrapper {
-        padding: 0 5px;
-    }
-    .slick-dots {
-        bottom: -30px;
-    }
-    .service-card {
-        height: 500px;
-    }
-}
 
-@media (max-width: 480px) {
-    .services-main-title {
-        font-size: 1.8em;
-    }
-    .service-card-title {
-        font-size: 1.2em;
-    }
-    .service-card-subtitle,
-    .service-card-description {
-        font-size: 0.85em;
-    }
+    /* Maximize container space on mobile */
     .services-carousel-container {
+        padding: 0;
+    }
+
+    .carousel-wrapper {
         padding: 0 10px;
     }
+
+    .service-card-wrapper {
+        flex: 0 0 calc(100% - 20px);
+        /* 1 card */
+        width: calc(100% - 20px);
+    }
+
     .service-card {
-        height: 480px;
+        height: 500px;
     }
 }

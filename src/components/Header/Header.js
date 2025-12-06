@@ -44,7 +44,7 @@ const Header = () => {
                     <div className="logo-box">
                         <img src={Logo} alt='logo' className='logo' />
                     </div> 
-                    <span className="clinic-name">GURPREET DENTAL & Implants CLINIC</span>
+                    <span className="clinic-name">GURPREET DENTAL & IMPLANT CENTRE</span>
                 </div>
 
                 <nav className="main-nav">

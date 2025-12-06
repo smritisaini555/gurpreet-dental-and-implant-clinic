@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, Facebook, Instagram, Globe } from 'lucide-react';
 import Logo from '../../assests/icons/Logo.jpeg';
 
 const Footer = () => {
-    const clinicName = "GURPREET DENTAL & OPTICAL CLINIC";
+    const clinicName = "GURPREET DENTAL & IMPLANT CENTRE";
     const addressLink = "https://www.google.com/maps/place/Gurpreet+dental+and+optical+clinic/@30.9128504,76.1961098,17z/data=!4m6!3m5!1s0x391aa7b1dbaf6cc5:0xd238c260782ae369!8m2!3d30.912882!4d76.196159!16s%2Fg%2F11c2l0r85f?entry=ttu";
     const phone = "+91 9876324499";
     const email = "harmanjotsingh8479@gmail.com";
