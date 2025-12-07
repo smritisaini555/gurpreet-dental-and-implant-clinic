@@ -4,6 +4,7 @@ import 'react-calendar/dist/Calendar.css';
 import './BookingPage.scss';
 
 const API_BASE_URL = 'https://gurpreet-dental-and-implant-clinic.onrender.com/api';
+// const API_BASE_URL = 'http://localhost:3001/api';
 
 const DOCTOR_LIST = [
     { id: 'gurpreet', name: 'Dr. Gurpreet' },
@@ -103,6 +104,35 @@ const ConfirmationScreen = ({ confirmationData, onNewBooking }) => {
     );
 };
 
+const LoadingOverlay = () => (
+    <div className="loading-overlay">
+        <div className="spinner"></div>
+        <p>Processing Appointment...</p>
+    </div>
+);
+
+const ErrorScreen = ({ errorMessage, onTryAgain }) => (
+    <section className="confirmation-screen-container error-screen">
+        <div className="confirmation-box error-box">
+            <div className="confirmation-icon error-icon">❌</div>
+            <h1 className="confirmation-title error-title">Booking Failed</h1>
+            <p className="confirmation-message error-message">
+                Error: {errorMessage}
+            </p>
+            <p className="error-instruction">
+                Please check the details you entered and try again. If the issue persists, the slot may have just been taken.
+            </p>
+            <button
+                className="new-booking-button"
+                onClick={onTryAgain}
+            >
+                Go Back and Try Again
+            </button>
+        </div>
+    </section>
+);
+
+
 const BookingPage = () => {
     const [selectedDoctor, setSelectedDoctor] = useState(DOCTOR_LIST[0].id);
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -116,6 +146,8 @@ const BookingPage = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const [bookingConfirmation, setBookingConfirmation] = useState(null);
+    const [submissionStatus, setSubmissionStatus] = useState('idle'); // idle, loading, success, error
+    const [submissionError, setSubmissionError] = useState('');
 
     const isPatientInfoValid = patientName.trim() !== '' && patientEmail.includes('@');
 
@@ -142,10 +174,10 @@ const BookingPage = () => {
     }, []);
 
     useEffect(() => {
-        if (!bookingConfirmation) {
+        if (!bookingConfirmation && submissionStatus !== 'error') {
             fetchBookedSlots(selectedDoctor, selectedDate);
         }
-    }, [selectedDoctor, selectedDate, fetchBookedSlots, bookingConfirmation]);
+    }, [selectedDoctor, selectedDate, fetchBookedSlots, bookingConfirmation, submissionStatus]);
 
     useEffect(() => {
         setIsReadyToBook(!isLoading && selectedTimeSlot && isPatientInfoValid);
@@ -171,6 +203,7 @@ const BookingPage = () => {
             patientName: name,
             patientEmail: email
         });
+        setSubmissionStatus('success');
 
         window.scrollTo(0, 0);
 
@@ -181,13 +214,16 @@ const BookingPage = () => {
 
     const startNewBooking = () => {
         setBookingConfirmation(null);
+        setSubmissionStatus('idle');
+        setSubmissionError('');
         fetchBookedSlots(selectedDoctor, selectedDate);
     };
 
     const handleFinalBooking = async () => {
         if (!isReadyToBook) return;
 
-        setIsLoading(true);
+        setSubmissionStatus('loading');
+        setSubmissionError('');
 
         const currentDoctor = DOCTOR_LIST.find(d => d.id === selectedDoctor);
         const doctorName = currentDoctor?.name;
@@ -224,20 +260,21 @@ const BookingPage = () => {
                 );
 
             } else if (response.status === 409) {
-                alert(`Booking Failed: ${result.message}`);
+                setSubmissionError(`The selected time slot (${selectedTimeSlot}) was just booked. Please select another slot.`);
+                setSubmissionStatus('error');
             } else {
                 throw new Error(result.message || 'Booking failed due to a server error.');
             }
 
         } catch (error) {
             console.error("Booking failed:", error);
-            alert(`Booking attempt failed: ${error.message}`);
+            setSubmissionError(error.message || 'The booking attempt failed. Please check your internet connection.');
+            setSubmissionStatus('error');
         } finally {
-            setIsLoading(false);
+            // We manage the final state via submissionStatus
         }
     };
 
-    // Helper to disable past dates in the calendar
     const isPastDate = (date) => {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
@@ -252,10 +289,21 @@ const BookingPage = () => {
 
     const currentDoctorName = DOCTOR_LIST.find(d => d.id === selectedDoctor)?.name;
 
-    if (bookingConfirmation) {
+    if (submissionStatus === 'loading') {
+        return <LoadingOverlay />;
+    }
+
+    if (submissionStatus === 'success' && bookingConfirmation) {
         return <ConfirmationScreen
             confirmationData={bookingConfirmation}
             onNewBooking={startNewBooking}
+        />;
+    }
+
+    if (submissionStatus === 'error') {
+        return <ErrorScreen
+            errorMessage={submissionError}
+            onTryAgain={startNewBooking}
         />;
     }
 
@@ -370,11 +418,11 @@ const BookingPage = () => {
                     <button
                         className="booking-cta-button"
                         onClick={handleFinalBooking}
-                        disabled={!isReadyToBook || isLoading}
+                        disabled={!isReadyToBook || submissionStatus === 'loading'}
                     >
-                        {isLoading ? 'Processing...' : 'Confirm & Book Appointment'}
+                        {submissionStatus === 'loading' ? 'Processing...' : 'Confirm & Book Appointment'}
                     </button>
-                    {!isReadyToBook && !isLoading && (
+                    {!isReadyToBook && submissionStatus !== 'loading' && (
                         <p className="cta-prompt">
                             {selectedTimeSlot && !isPatientInfoValid
                                 ? 'Please enter your name and a valid email.'
