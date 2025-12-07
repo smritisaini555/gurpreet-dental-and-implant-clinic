@@ -1,0 +1,486 @@
+@import '../../styles/variables.scss';
+
+.booking-page-container {
+    padding: 1px $padding-20 80px; 
+    background-color: $black;
+    color: $white;
+    min-height: $value-100vh;
+}
+
+.booking-page-container .booking-header {
+    text-align: $center-align;
+    margin-bottom: 50px;
+}
+
+.booking-page-container .booking-header .booking-title {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.booking-page-container .booking-header .booking-subtitle {
+    color: $text-light-grey;
+    font-size: 1.1em;
+}
+
+.step-title {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    color: $accent-color;
+    text-align: $center-align;
+}
+
+// --- 1. Doctor Selection ---
+.doctor-selection-wrapper {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: $padding-20;
+    background-color: $card-bg;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba($black, 0.5);
+
+    .doctor-tab-list {
+        display: flex;
+        justify-content: $center-align;
+        gap: 15px;
+
+        .doctor-tab {
+            padding: 12px 25px;
+            background-color: $dark-grey;
+            color: $white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color $transition-speed, color $transition-speed;
+            font-weight: 500;
+        }
+
+        .doctor-tab.active {
+            background-color: $accent-color;
+            color: $black;
+            box-shadow: 0 0 10px rgba($accent-color, 0.8);
+        }
+
+        .doctor-tab:hover:not(.active) {
+            background-color: lighten($dark-grey, 10%);
+        }
+    }
+
+    .doctor-dropdown {
+        display: none;
+        width: $value-100percentage;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: $dark-grey;
+        color: $white;
+        border: 1px solid $dark-grey;
+    }
+}
+
+.scheduling-area {
+    max-width: 900px;
+    margin: 0 auto 40px; 
+    padding: $padding-20;
+    background-color: $card-bg;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba($black, 0.7); 
+
+    .calendar-header {
+        text-align: $center-align;
+        font-size: 1.3em;
+        margin-bottom: 20px;
+        color: $accent-color;
+        text-shadow: 0 0 5px rgba($accent-color, 0.4); 
+    }
+    
+    .react-calendar-wrapper {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .react-calendar {
+        background: $card-bg; 
+        border: none;
+        border-radius: 8px;
+        font-family: inherit;
+        width: 100%;
+        padding: 5px;
+    }
+    
+    .react-calendar__navigation {
+        height: 44px;
+        margin-bottom: 0.5em; 
+        
+        button {
+            background: $dark-grey;
+            color: $white;
+            border-radius: 5px;
+            margin: 0 2px;
+            
+            &:enabled:hover,
+            &:enabled:focus {
+                background-color: lighten($dark-grey, 10%);
+            }
+            &:disabled {
+                background-color: $black;
+                opacity: 0.3;
+            }
+        }
+        
+        .react-calendar__navigation__label {
+            font-weight: 600;
+            color: $white;
+            font-size: 1.1em;
+        }
+    }
+
+    .react-calendar__month-view__weekdays__weekday {
+        padding: 0.5em 0;
+        text-align: center;
+        font-size: 0.85em;
+        font-weight: 600;
+        color: $accent-color;
+        text-shadow: 0 0 3px rgba($accent-color, 0.5);
+        
+        abbr {
+            text-decoration: none;
+        }
+    }
+
+    .react-calendar__tile {
+        max-width: 100%;
+        height: 40px; 
+        line-height: 40px; 
+        padding: 0; 
+        
+        background: $black;
+        color: $white;
+        border-radius: 4px;
+        transition: background-color $transition-speed, box-shadow $transition-speed, transform $transition-speed;
+        
+        box-shadow: inset 0 0 0 1px $dark-grey; 
+        
+        abbr {
+            display: block;
+            text-align: center;
+            line-height: inherit;
+        }
+
+        &:enabled:hover {
+            background-color: $dark-grey;
+            transform: translateY(-1px);
+        }
+        
+        &--weekend {
+            color: $white;
+        }
+    }
+
+    .react-calendar__tile:disabled {
+        background-color: $black;
+        color: $dark-grey;
+        opacity: 0.5;
+        cursor: not-allowed;
+        box-shadow: inset 0 0 0 1px $dark-grey;
+        transform: none;
+    }
+    
+    .react-calendar__month-view__days__day--neighboringMonth {
+        background-color: $card-bg;
+        color: $dark-grey;
+        opacity: 0.7;
+        box-shadow: none; 
+    }
+
+    .react-calendar__tile--active,
+    .react-calendar__tile--now {
+        background: $accent-color;
+        color: $black !important;
+        font-weight: 700;
+        box-shadow: 0 0 10px rgba($accent-color, 0.9);
+        border-radius: 4px;
+        transform: scale(1.05); 
+    }
+    
+    .react-calendar__viewContainer {
+        background: none;
+    }
+
+    .time-slots-list {
+        margin-top: 30px;
+        text-align: $center-align;
+
+        .slot-title {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .slot-button {
+            display: inline-block;
+            padding: 10px 18px; 
+            margin: 5px;
+            border-radius: 25px; 
+            background-color: $dark-grey;
+            color: $white;
+            cursor: pointer;
+            transition: background-color $transition-speed, box-shadow $transition-speed;
+            font-weight: 500;
+            
+            border: 1px solid rgba($accent-color, 0.3); 
+
+            &.active {
+                background-color: $accent-color;
+                color: $black;
+                box-shadow: 0 0 15px rgba($accent-color, 0.9); 
+                border-color: $accent-color;
+            }
+        }
+
+        .slot-button.booked {
+            background-color: $black;
+            color: $text-light-grey;
+            opacity: 0.8;
+            cursor: not-allowed;
+            border: 1px dashed $text-light-grey; 
+            box-shadow: none;
+        }
+
+        .slot-button:not(.booked):hover {
+            background-color: $accent-color;
+            color: $black;
+            box-shadow: 0 0 8px rgba($accent-color, 0.6);
+        }
+    }
+    
+    .booking-cta-wrapper {
+        margin-top: 40px;
+        text-align: $center-align;
+
+        .booking-cta-button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            
+            background-color: $accent-color;
+            color: $black;
+            box-shadow: 0 5px 15px rgba($accent-color, 0.5);
+
+            &:hover:not(:disabled) {
+                background-color: darken($accent-color, 5%);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba($accent-color, 0.7);
+            }
+
+            &:disabled {
+                background-color: $dark-grey;
+                color: $text-light-grey;
+                cursor: not-allowed;
+                opacity: 0.6;
+                box-shadow: none;
+                transform: none;
+            }
+        }
+
+        .cta-prompt {
+            color: $text-light-grey;
+            margin-top: 10px;
+            font-style: italic;
+        }
+    }
+}
+
+.patient-info-wrapper {
+    max-width: 900px;
+    margin: 40px auto; 
+    padding: $padding-20;
+    background-color: $card-bg;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba($black, 0.5);
+
+    .step-title {
+        font-size: 1.5em;
+        margin-bottom: 25px;
+        color: $accent-color;
+        text-align: $center-align;
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: $white;
+            font-size: 1.1em;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid $dark-grey;
+            background-color: $black;
+            color: $white;
+            font-size: 1em;
+            transition: border-color $transition-speed;
+            
+            box-sizing: border-box; 
+
+            &:focus {
+                outline: none;
+                border-color: $accent-color;
+                box-shadow: 0 0 5px rgba($accent-color, 0.5);
+            }
+        }
+    }
+}
+
+
+.confirmation-screen-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; 
+    padding: $padding-20;
+    text-align: $center-align;
+    background-color: $black;
+}
+
+.confirmation-box {
+    max-width: 600px;
+    width: $value-100percentage;
+    padding: 40px;
+    background-color: $card-bg;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba($black, 0.8);
+}
+
+.confirmation-icon {
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: $accent-color; 
+}
+
+.confirmation-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: $white;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba($accent-color, 0.5);
+}
+
+.confirmation-message {
+    font-size: 1.2em;
+    color: $text-light-grey;
+    margin-bottom: 30px;
+}
+
+.appointment-card-display {
+    .card-primary-info {
+        font-size: 2em;
+        color: $white;
+        font-weight: 600;
+
+        .separator {
+            margin: 0 10px;
+        }
+    }
+    .card-date-line, .card-location-line {
+        font-size: 1em;
+        color: $text-dark;
+    }
+}
+
+.details-card-footer .detail-item {
+    font-size: 1em;
+    color: $text-dark;
+}
+
+.details-card {
+    background-color: $dark-grey;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: left;
+    
+    .detail-item {
+        font-size: 1.1em;
+        margin: 8px 0;
+        line-height: 1.4;
+        color: $white;
+        
+        strong {
+            color: $accent-color;
+            min-width: 120px;
+            display: inline-block;
+        }
+    }
+}
+
+.new-booking-button {
+    padding: 12px 30px;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: $accent-color;
+    color: $black;
+    transition: background-color 0.3s, transform 0.2s;
+
+    &:hover {
+        background-color: darken($accent-color, 5%);
+        transform: translateY(-1px);
+    }
+}
+
+@media (max-width: 768px) {
+    .booking-page-container {
+        padding-top: 80px;
+    }
+
+    .booking-page-container .booking-header .booking-title {
+        font-size: 2.2em;
+    }
+
+    .doctor-selection-wrapper .doctor-tab-list {
+        display: none;
+    }
+
+    .doctor-selection-wrapper .doctor-dropdown {
+        display: block;
+    }
+    
+    .scheduling-area .react-calendar {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .scheduling-area .react-calendar__tile {
+        height: 35px;
+        line-height: 35px;
+    }
+    
+    .scheduling-area .booking-cta-button {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+    
+    .patient-info-wrapper {
+        margin: 30px auto;
+        padding: 15px;
+    }
+    
+    .confirmation-box {
+        padding: 20px;
+    }
+    .confirmation-title {
+        font-size: 2em;
+    }
+    .confirmation-message {
+        font-size: 1em;
+    }
+}
