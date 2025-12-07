@@ -3,7 +3,7 @@ import CalendarComponent from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './BookingPage.scss';
 
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = 'https://gurpreet-dental-and-implant-clinic.onrender.com/api';
 
 const DOCTOR_LIST = [
     { id: 'gurpreet', name: 'Dr. Gurpreet' },
