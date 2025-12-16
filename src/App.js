@@ -9,6 +9,8 @@ import Location from './components/Location/Location';
 import Footer from './components/Footer/Footer';
 import TestimonialsSection from './components/Testimonials/Testimonials';
 import BookingPage from './components/BookingPage/BookingPage';
+import StickyContactBar from './components/StickyContactBar/StickyContactBar'; 
+
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -59,6 +61,8 @@ function App() {
             <BrowserRouter> 
                 <ScrollToTop />
                 
+                <StickyContactBar />
+
                 <Routes>
                     <Route 
                         path="/" 
