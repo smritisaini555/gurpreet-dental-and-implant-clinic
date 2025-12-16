@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import CalendarComponent from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './BookingPage.scss';
 
-const API_BASE_URL = 'https://gurpreet-dental-and-implant-clinic.onrender.com/api';
-// const API_BASE_URL = 'http://localhost:3001/api';
+// Set the API_BASE_URL for local development (as you have done)
+// For production, you must change this back to the Render URL or use environment variables.
+// const API_BASE_URL = 'https://gurpreet-dental-and-implant-clinic.onrender.com/api';
+const API_BASE_URL = 'http://localhost:3001/api';
 
 const DOCTOR_LIST = [
     { id: 'gurpreet', name: 'Dr. Gurpreet' },
@@ -12,6 +14,7 @@ const DOCTOR_LIST = [
 ];
 
 const generateTimeSlots = () => {
+    // ... (rest of function is unchanged)
     const slots = [];
     let startTimeMinutes = 10 * 60;
     const endTimeMinutes = 18 * 60 + 30;
@@ -33,6 +36,7 @@ const generateTimeSlots = () => {
 };
 
 const getDateKey = (date) => {
+    // ... (function is unchanged)
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
@@ -40,6 +44,7 @@ const getDateKey = (date) => {
 };
 
 const formatCardSubtitleDate = (date) => {
+    // ... (function is unchanged)
     return date.toLocaleDateString('en-US', {
         weekday: 'long',
         year: 'numeric',
@@ -49,6 +54,7 @@ const formatCardSubtitleDate = (date) => {
 };
 
 const AppointmentDetailsCard = ({ doctorName, selectedDate, selectedTimeSlot }) => {
+    // ... (component is unchanged)
     const formattedDate = formatCardSubtitleDate(selectedDate);
     const location = "GURPREET DENTAL & IMPLANT CENTRE";
 
@@ -72,6 +78,7 @@ const AppointmentDetailsCard = ({ doctorName, selectedDate, selectedTimeSlot }) 
 };
 
 const ConfirmationScreen = ({ confirmationData, onNewBooking }) => {
+    // ... (component is unchanged)
     const { doctorName, patientName, selectedTimeSlot, selectedDate, patientEmail } = confirmationData;
 
     return (
@@ -143,7 +150,7 @@ const BookingPage = () => {
 
     const [isReadyToBook, setIsReadyToBook] = useState(false);
     const [currentBookedSlots, setCurrentBookedSlots] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isSlotsLoading, setIsSlotsLoading] = useState(false); // Renamed for clarity
 
     const [bookingConfirmation, setBookingConfirmation] = useState(null);
     const [submissionStatus, setSubmissionStatus] = useState('idle'); // idle, loading, success, error
@@ -152,7 +159,7 @@ const BookingPage = () => {
     const isPatientInfoValid = patientName.trim() !== '' && patientEmail.includes('@');
 
     const fetchBookedSlots = useCallback(async (doctorId, date) => {
-        setIsLoading(true);
+        setIsSlotsLoading(true); // <-- Start loader
         setSelectedTimeSlot(null);
 
         const dateKey = getDateKey(date);
@@ -161,30 +168,75 @@ const BookingPage = () => {
         try {
             const response = await fetch(url);
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                // If network response is not OK (e.g., 404, 500), throw error
+                // The 500 error from Render will hit this path
+                const errorBody = await response.json();
+                throw new Error(errorBody.message || 'Failed to retrieve availability.');
             }
             const data = await response.json();
             setCurrentBookedSlots(data.bookedSlots || []);
         } catch (error) {
             console.error("Error fetching slots:", error);
-            setCurrentBookedSlots([]);
+            // Handle the fetch error visually for the user (optional)
+            // setSubmissionError(error.message || 'Could not fetch slots.');
+            setCurrentBookedSlots([]); // Clear slots on error
         } finally {
-            setIsLoading(false);
+            setIsSlotsLoading(false); // <-- End loader
         }
     }, []);
 
     useEffect(() => {
-        if (!bookingConfirmation && submissionStatus !== 'error') {
+        // Only fetch slots if not in a submission state
+        if (submissionStatus === 'idle') {
             fetchBookedSlots(selectedDoctor, selectedDate);
         }
-    }, [selectedDoctor, selectedDate, fetchBookedSlots, bookingConfirmation, submissionStatus]);
+        // Dependency array: only re-run when doctor, date changes, or fetchBookedSlots is re-created.
+    }, [selectedDoctor, selectedDate, fetchBookedSlots, submissionStatus]);
 
     useEffect(() => {
-        setIsReadyToBook(!isLoading && selectedTimeSlot && isPatientInfoValid);
-    }, [isLoading, selectedTimeSlot, isPatientInfoValid]);
+        // isSlotsLoading is now used here
+        setIsReadyToBook(!isSlotsLoading && selectedTimeSlot && isPatientInfoValid);
+    }, [isSlotsLoading, selectedTimeSlot, isPatientInfoValid]);
 
 
-    const allAvailableSlots = React.useMemo(() => generateTimeSlots(), []);
+    const allAvailableSlots = useMemo(() => generateTimeSlots(), []); // Changed to useMemo
+
+    const isPastSlot = useCallback((slotTime, date) => {
+        // Check if the selected date is today
+        const today = new Date();
+        const selectedDateKey = getDateKey(date);
+        const todayKey = getDateKey(today);
+
+        if (selectedDateKey !== todayKey) {
+            return false; // Only worry about past time slots for *today*
+        }
+
+        // 1. Parse the slot time (e.g., "10:30 AM") to a Date object
+        const parts = slotTime.match(/(\d+):(\d+)\s(AM|PM)/);
+        if (!parts) return false; // Should not happen with generateTimeSlots format
+
+        let hours = parseInt(parts[1], 10);
+        const minutes = parseInt(parts[2], 10);
+        const period = parts[3];
+
+        // Convert 12-hour clock time to 24-hour time
+        if (period === 'PM' && hours !== 12) {
+            hours += 12;
+        } else if (period === 'AM' && hours === 12) {
+            hours = 0; // Midnight case
+        }
+
+        // Create a Date object for the start of the slot on the selected day
+        const slotDateTime = new Date(date);
+        slotDateTime.setHours(hours, minutes, 0, 0);
+
+        // 2. Compare with the current time (now)
+        const now = new Date();
+
+        // Check if the slot time has already passed
+        return slotDateTime.getTime() < now.getTime();
+
+    }, []); 
 
     const handleDoctorChange = (doctorId) => {
         setSelectedDoctor(doctorId);
@@ -216,7 +268,7 @@ const BookingPage = () => {
         setBookingConfirmation(null);
         setSubmissionStatus('idle');
         setSubmissionError('');
-        fetchBookedSlots(selectedDoctor, selectedDate);
+        // This will trigger the useEffect to fetch slots again
     };
 
     const handleFinalBooking = async () => {
@@ -359,28 +411,38 @@ const BookingPage = () => {
 
                 <div className="time-slots-list">
                     <div className="slot-title">
-                        {isLoading
+                        {isSlotsLoading // <-- Use the new state here
                             ? `Loading slots for ${selectedDate.toDateString()}...`
                             : `Available Slots on ${selectedDate.toDateString()}:`
                         }
                     </div>
 
-                    {isLoading && (
+                    {isSlotsLoading && ( // <-- Use the new state here
                         <p className="cta-prompt">Fetching latest availability...</p>
                     )}
+                    
+                    {/* Added a spinner/loading indicator for fetching slots */}
+                    {isSlotsLoading && (
+                        <div className="slot-loading-spinner-wrapper">
+                            <div className="spinner small-spinner"></div>
+                        </div>
+                    )}
 
-                    {!isLoading && allAvailableSlots.map((slot) => {
+
+                    {!isSlotsLoading && allAvailableSlots.map((slot) => { // <-- Use the new state here
                         const isBooked = currentBookedSlots.includes(slot);
+                        const isSlotPast = isPastSlot(slot, selectedDate); 
+                        const isDisabled = isBooked || isSlotPast; // Combine booked and past checks
                         const isActive = selectedTimeSlot === slot;
 
                         return (
                             <button
                                 key={slot}
                                 className={`slot-button ${isBooked ? 'booked' : ''} ${isActive ? 'active' : ''}`}
-                                onClick={() => !isBooked && handleSlotClick(slot)}
-                                disabled={isBooked}
+                                onClick={() => !isDisabled && handleSlotClick(slot)}
+                                disabled={isDisabled} 
                             >
-                                {slot} {isBooked ? '(Booked)' : ''}
+                                {slot} {isBooked ? '(Booked)' : isSlotPast ? '(Passed)' : ''}
                             </button>
                         );
                     })}
