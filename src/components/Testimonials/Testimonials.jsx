@@ -113,7 +113,7 @@ const TestimonialsSection = () => {
 
     return (
         <section className="testimonials-section" id="testimonials">
-            <h2 className="testimonials-main-title">Our Clients Best Feedback</h2>
+            <h2 className="testimonials-main-title">Our Clients Best Feedbacks</h2>
 
             <div className="testimonials-carousel-container">
                 <div className="carousel-wrapper">
@@ -122,11 +122,7 @@ const TestimonialsSection = () => {
                         <div
                             className="testimonials-track"
                             style={{
-                                // width: `${trackWidth}%`,
-                                // transform: `translateX(-${translation}%)`,
-                                // Pass the dynamic transition state to the CSS
-                                // transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none'
-                                 transform: `translateX(-${translation}%)`,
+                                transform: `translateX(-${translation}%)`,
                                 transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none'
                             }}
                         >

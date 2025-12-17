@@ -10,6 +10,7 @@ import Footer from './components/Footer/Footer';
 import TestimonialsSection from './components/Testimonials/Testimonials';
 import BookingPage from './components/BookingPage/BookingPage';
 import StickyContactBar from './components/StickyContactBar/StickyContactBar'; 
+import VideoTestimonials from './components/VideoTestimonials/VideoTestimonials';
 
 
 const ScrollToTop = () => {
@@ -28,6 +29,7 @@ const HomePageContent = () => (
         <About />
         <Services />
         <TestimonialsSection />
+        <VideoTestimonials />
         <Location />
     </>
 );
@@ -60,7 +62,7 @@ function App() {
         <div className="App">
             <BrowserRouter> 
                 <ScrollToTop />
-                
+
                 <StickyContactBar />
 
                 <Routes>
