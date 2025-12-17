@@ -1,137 +1,302 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 :root {
-    --header-height: 110px;
+  --header-height: 110px;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: $value-100percentage;
+  margin: 0;
+  padding: 0;
 }
 
 .site-header {
-    background-color: $black;
-    color: $white;
-    padding: 30px 0;
-    border-top: 5px solid $accent-color;
-    border-bottom: 1px solid $border-light;
-    position: fixed;
-    top: 0;
-    left: 0;
+  background-color: $black;
+  color: $white;
+  padding: 30px 0;
+  border-top: 5px solid $accent-color;
+  border-bottom: 1px solid $border-light;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $value-100percentage;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgb(52 50 50 / 70%);
+  overflow: visible; 
+
+  .header-container {
+    max-width: $max-width-container;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 15px;
+    align-items: $center-align;
+    text-align: $center-align;
+    position: relative; 
+
+    .mobile-header-row {
+      display: flex;
+      width: $value-100percentage;
+      justify-content: $center-align;
+      align-items: $center-align;
+      position: relative;
+      z-index: 1200;
+    }
+  }
+
+  .hamburger-icon {
+    display: none;
+    flex-direction: $flex-column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1100;
+    span {
+      display: block;
+      height: 3px;
+      width: $value-100percentage;
+      background-color: $white;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    &.open {
+      span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    }
+  }
+
+  .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .logo-box { 
+        width: 45px; 
+        height: 45px; 
+    }
+    .logo { 
+        width: 100%;
+         height: 100%; 
+         object-fit: cover; 
+         border-radius: 50%; 
+         display: block; 
+        }
+    .clinic-name { 
+        font-size: 16px; 
+        font-weight: 500; 
+        letter-spacing: 0.5px; 
+        line-height: 1.2; 
+    }
+  }
+
+  .main-nav {
+    display: flex;
+    justify-content: $center-align;
     width: $value-100percentage;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgb(52 50 50 / 70%);
-
-    .header-container {
-        max-width: $max-width-container;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: $center-align;
-        padding: 0 20px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 30px;
+    }
+    li { 
+        position: static; 
+    }
+    a {
+      color: $white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      padding-bottom: 5px;
+      position: relative;
+      transition: border-bottom 0.2s;
+      &:hover, &.active { border-bottom: 2px solid $white; }
     }
 
-    .logo-section {
+    .dropdown-wrapper {
+      position: static; 
+      .treatments-dropdown {
+        position: absolute;
+        top: 5.7rem; 
+        left: 50%;
+        transform: translateX(-50%);
+        width: 95vw; 
+        max-width: 1100px;
+        padding-top: 30px; 
+        margin-top: -10px; 
+        background-color: transparent;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 2000; 
+
+        &.show {
+           display: flex;
+           opacity: 1;
+        }
+
+        .dropdown-inner-content {
+          background-color: $footer-bg;
+          display: flex;
+          width: $value-100percentage;
+          padding: 30px 0;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+          justify-content: space-between;
+          border: 1px solid $border-light;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 20px; 
+          left: 42%;
+          transform: translateX(-50%);
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid $footer-bg;
+        }
+      }
+
+      &:hover .treatments-dropdown {
         display: flex;
-        align-items: $center-align;
-        gap: 10px;
-        order: 1;
-
-        .logo-box {
-            width: 45px;
-            height: 45px;
-        }
-
-        .logo {
-            width: $value-100percentage;
-            height: $value-100percentage;
-            object-fit: cover;
-            display: block;
-            border-radius: 50%;
-        }
-
-        .clinic-name {
-            font-size: 16px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            line-height: 1.2;
-        }
+        opacity: 1;
+      }
     }
 
-    .main-nav {
-        order: 2;
+    .dropdown-column {
+      flex: 1;
+      min-width: 30%;
+      &:not(:last-child) {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
 
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 30px;
+      .column-links {
+        list-style: none;
+        display: flex;
+        flex-direction: $flex-column;
+        gap: 12px;
+        padding: 0 25px;
+        li { 
+          width: $value-100percentage;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          text-align: left; 
+          &:last-child { border-bottom: none; }
         }
-
         a {
-            color: $white;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 400;
-            padding-bottom: 5px;
-            position: relative;
-
-            &.active {
-                border-bottom: 2px solid $white;
-            }
+          color: $white;
+          font-size: 13px;
+          font-weight: 500;
+          display: block;
+          padding: 10px 0;
+          transition: all 0.3s ease;
+          &:hover {
+            color: $accent-color;
+            transform: translateX(8px);
+          }
         }
+      }
     }
+  }
 }
 
-@media (max-width: 767px) {
-    :root {
-        --header-height: 120px;
+/* --- Responsive Styles --- */
+@media (max-width: 1024px) {
+  .site-header {
+    .header-container {
+      align-items: flex-start;
+      .mobile-header-row { justify-content: space-between; }
     }
+    .hamburger-icon { display: flex; }
+    .main-nav {
+      position: fixed;
+      top: 0;
+      right: -110%;
+      width: $value-100percentage;
+      height: $value-100vh;
+      background-color: $footer-bg;
+      padding: 100px 0 60px; // Added bottom padding for better scroll end
+      transition: right 0.4s ease-in-out;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+      
+      // FIX: Enable internal scrolling for mobile menu
+     overflow-y: auto; 
+      overflow-x: hidden;
+      display: block; // Change from flex to block to ensure vertical stacking
+      z-index: 1000;
+      visibility: hidden;
 
-    .site-header {
-        .header-container {
+      &.mobile-active { right: 0; visibility: visible; }
+      
+      ul { 
+        flex-direction: $flex-column; 
+        gap: 0; 
+        align-items: stretch;
+        padding-bottom: 100px;
+        float: none; 
+      }
+
+      li {
+        width: $value-100percentage;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      a {
+        padding: 20px;
+        display: block;
+        text-align: $center-align;
+      }
+
+      .dropdown-wrapper {
+        position: relative; 
+        
+        .treatments-dropdown {
+          position: relative;
+          top: 0;
+          left: 0;
+          transform: none;
+          width: $value-100percentage;
+          padding: 0;
+          display: none; 
+          opacity: 1;
+          
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease-in-out;
+
+          &.show {
+            display: block;
+            max-height: 2500px; 
+          }
+
+          .dropdown-inner-content {
             flex-direction: $flex-column;
-            align-items: flex-start;
+            background: #111; 
+            border: none;
+            padding: 10px 0;
+          }
+          &::before { display: none; }
         }
+      }
 
-        .logo-section {
-            order: 1;
-            margin-bottom: 10px;
-        }
-
-        .main-nav {
-            order: 2;
-            width: $value-100percentage;
-            display: flex;
-            justify-content: $center-align;
-
-            ul {
-                gap: 15px;
-            }
-        }
-    }
-}
-
-@media (max-width: 480px) {
-    :root {
-        --header-height: 125px;
-    }
-
-    .site-header {
-        .header-container {
-            padding: 0 15px;
-        }
-
-        .logo-section {
-            .clinic-name {
-                font-size: 14px;
-            }
-        }
-
-        .main-nav {
-            ul {
-                flex-wrap: wrap;
-            }
-
+      .dropdown-column {
+        min-width: $value-100percentage;
+        border-right: none !important;
+        
+        .column-links { 
+          padding: 0;
+          li { 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
             a {
-                font-size: 14px;
+              font-size: 14px;
+              padding: 15px 10px;
             }
+          }
         }
+      }
     }
+  }
 }
