@@ -11,7 +11,8 @@ import TestimonialsSection from './components/Testimonials/Testimonials';
 import BookingPage from './components/BookingPage/BookingPage';
 import StickyContactBar from './components/StickyContactBar/StickyContactBar'; 
 import VideoTestimonials from './components/VideoTestimonials/VideoTestimonials';
-import TreatmentDetail from './pages/TreatmentDetail/TreatmentDetail'; // Import your new page
+import TreatmentDetail from './pages/TreatmentDetail/TreatmentDetail';
+import MeetOurDoctors from './components/MeetOurDoctors/MeetOurDoctors';
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -27,6 +28,7 @@ const HomePageContent = () => (
         <IntroSection />
         <About />
         <Services />
+        <MeetOurDoctors />
         <TestimonialsSection />
         <VideoTestimonials />
         <Location />
