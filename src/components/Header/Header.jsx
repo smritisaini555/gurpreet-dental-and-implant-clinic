@@ -70,10 +70,6 @@ const Header = ({ onNavigate }) => {
         }
     };
 
-    const createTreatmentSlug = (name) => {
-        return name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-    };
-
     const linksBeforeTreatments = [
         { id: 'home', text: 'HOME' },
         { id: 'about', text: 'About' },
