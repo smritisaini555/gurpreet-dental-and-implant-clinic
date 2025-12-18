@@ -6,8 +6,7 @@ const Location = () => {
     address: 'Gurpreet dental & optical clinic, near civil hospital, bus stand road, Machhiwara sahib [pincode: 141115]',
     contact: {
       tel1: '+91 9876324499',
-      email1: 'drgurpreetsingh11@gmail.com',
-      email2: 'harmansingh8479@gmail.com'
+      email1: 'gurpreetdentalimplantcentre@gmail.com',
     },
     hours: {
       days: 'Monday-Saturday',
@@ -45,7 +44,6 @@ const Location = () => {
           <div className='column-content'>
             <p>Tel: {locationDetails.contact.tel1}</p>
             <p>Email: <a href={`mailto:${locationDetails.contact.email1}`}>{locationDetails.contact.email1}</a></p>
-            <p>Email: <a href={`mailto:${locationDetails.contact.email2}`}>{locationDetails.contact.email2}</a></p>
           </div>
         </div>
 
