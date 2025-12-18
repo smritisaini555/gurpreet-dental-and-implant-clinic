@@ -1,39 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Header.scss';
 import Logo from '../../assests/icons/Logo.jpeg';
-
-const treatmentsData = [
-    {
-        links: [
-            'ORAL EXAMINATION AND CLEANINGS',
-            'TOOTH CAVITY TREATMENT',
-            'PAINLESS ROOT CANAL TREATMENT',
-            'CBCT & OPG',
-            'IMPLANTS',
-            'LASERS',
-        ],
-    },
-    {
-        links: [
-            'EXTRACTION & SURGICAL PROCEDURES',
-            'KIDS DENTISTRY',
-            'VENEERS',
-            'BLEACHING',
-            'DENTURES & PARTIAL DENTURES',
-            'GUM DISEASES',
-        ],
-    },
-    {
-        links: [
-            'CROWNS & BRIDGES',
-            'BRACES',
-            'CLEAR ALIGNERS INVISALIGN',
-            'SEALANTS',
-            'FLUORIDE TREATMENT',
-            'TOOTH JEWELLERY',
-        ],
-    },
-];
+import { treatmentDetails, treatmentColumns } from '../../data/treatments';
 
 const Header = ({ onNavigate }) => { 
     const [activeLink, setActiveLink] = useState('home');
@@ -114,10 +82,10 @@ const Header = ({ onNavigate }) => {
     ];
     
     const linksAfterTreatments = [
-        { id: 'dental-tourism', text: 'DENTAL TOURISM' }, 
-        { id: 'in-office-tour', text: 'IN OFFICE TOUR' }, 
-        { id: 'gallery', text: 'GALLERY' }, 
-        { id: 'contact', text: 'CONTACT US' }, 
+        { id: 'dental-tourism', text: 'Dental Tourism' }, 
+        { id: 'in-office-tour', text: 'In Office Tour' }, 
+        { id: 'gallery', text: 'Gallery' }, 
+        { id: 'contact', text: 'Contact Us' }, 
     ];
 
     return (
@@ -173,29 +141,32 @@ const Header = ({ onNavigate }) => {
                                 onClick={handleTreatmentsClick} 
                                 className={isDropdownOpen ? 'active' : ''}
                             >
-                                TREATMENTS
+                                Treatments
                             </a>
                             
                             <div className={`treatments-dropdown ${isDropdownOpen ? 'show' : ''}`}>
-                               <div className="dropdown-inner-content">
-                                 {treatmentsData.map((column, colIndex) => (
-                                    <div key={colIndex} className="dropdown-column">
-                                        <ul className="column-links">
-                                            {column.links.map((treatmentName, linkIndex) => (
-                                                <li key={linkIndex}>
-                                                    <a 
-                                                        href={`/treatments/${createTreatmentSlug(treatmentName)}`}
-                                                        onClick={() => { closeDropdown(); setIsMenuOpen(false); }} 
-                                                    >
-                                                        {treatmentName}
-                                                    </a>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                 ))}
-                               </div>
-                            </div>
+    <div className="dropdown-inner-content">
+        {treatmentColumns.map((columnSlugs, colIndex) => (
+            <div key={colIndex} className="dropdown-column">
+                <ul className="column-links">
+                    {columnSlugs.map((slug) => (
+                        <li key={slug}>
+                            <a 
+                                href={`/treatments/${slug}`}
+                                onClick={(e) => {
+                                    closeDropdown();
+                                    setIsMenuOpen(false);
+                                }} 
+                            >
+                                {treatmentDetails[slug].name}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        ))}
+    </div>
+</div>
                         </li>
                         
                         {linksAfterTreatments.map((link) => (
