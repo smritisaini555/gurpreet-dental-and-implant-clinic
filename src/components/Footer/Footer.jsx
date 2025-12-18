@@ -30,10 +30,10 @@ const Footer = () => {
                 <div className="footer-column footer-social-icons">
                     <h4 className="column-title">Follow Us</h4>
                     <div className="social-links-column">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <a href="https://www.facebook.com/share/1CmXPREF7A/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <Facebook size={28} />
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <a href="https://www.instagram.com/gurpreet_dental_implant_centre?igsh=NWdsNmVpeDZ5YW16&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <Instagram size={28} />
                         </a>
                     </div>

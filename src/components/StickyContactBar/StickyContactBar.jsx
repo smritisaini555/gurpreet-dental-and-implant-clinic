@@ -7,9 +7,9 @@ import { FaWhatsapp } from 'react-icons/fa';
 const ICON_SIZE = 24; 
 
 const SOCIAL_LINKS = [
-    { icon: FaWhatsapp, href: 'https://wa.me/YOUR_PHONE_NUMBER', label: 'WhatsApp', key: 'whatsapp' },
-    { icon: Instagram, href: 'https://instagram.com/YOUR_HANDLE', label: 'Instagram', key: 'instagram' },
-    { icon: Facebook, href: 'https://facebook.com/YOUR_PAGE', label: 'Facebook', key: 'facebook' },
+    { icon: FaWhatsapp, href: 'https://wa.me/919876324499', label: 'WhatsApp', key: 'whatsapp' },
+    { icon: Instagram, href: 'https://www.instagram.com/gurpreet_dental_implant_centre?igsh=NWdsNmVpeDZ5YW16&utm_source=qr', label: 'Instagram', key: 'instagram' },
+    { icon: Facebook, href: 'https://www.facebook.com/share/1CmXPREF7A/?mibextid=wwXIfr', label: 'Facebook', key: 'facebook' },
 ];
 
 const CONTACT_LINKS = [
