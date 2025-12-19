@@ -1,0 +1,108 @@
+@import "../../styles/variables";
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $value-100percentage;
+  height: $value-100percentage;
+  background: $intro-dark-overlay;
+  display: flex;
+  justify-content: $center-align;
+  align-items: flex-start;
+  z-index: 10001;
+  transition: opacity 0.4s ease;
+
+  &.fade-in {
+    opacity: 1;
+  }
+  &.fade-out {
+    opacity: 0;
+  }
+}
+
+.invisalign-modal {
+  background: $black;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  padding: 10px 15px;
+
+  &.slide-down {
+    animation: slideDown 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+
+  &.slide-up {
+    animation: slideUp 0.4s cubic-bezier(0.5, 0, 0.75, 0) forwards;
+  }
+
+  .modal-header {
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: $center-align;
+    h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: $white;
+      font-weight: 500;
+    }
+    .close-x {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: $tagline-color;
+    }
+  }
+
+  .modal-body {
+    padding: 0;
+    img {
+      width: $value-100percentage;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .modal-footer {
+    padding: 10px 0;
+    text-align: right;
+    .close-btn {
+      padding: 6px 18px;
+      color: $accent-color;
+      border: 1px solid $accent-color;
+      border-radius: 4px;
+      background-color: $dark-grey;
+      cursor: pointer;
+      &:hover {
+        background: $accent-color;
+        color: $white;
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
