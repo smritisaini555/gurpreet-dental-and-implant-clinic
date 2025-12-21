@@ -1,131 +1,82 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .intro-section-container {
+  width: $value-100percentage;
+  min-height: $value-100vh;
+  background-size: cover;
+  background-position: $center-align;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient($intro-dark-overlay, $intro-dark-overlay),
+    url("../../assests/images/intro-background.jpeg");
+  display: flex;
+  justify-content: $center-align;
+  align-items: $center-align;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: $value-100percentage;
-    min-height: $value-100vh;
-    background-size: cover;
-    background-position: $center-align;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-image:
-        linear-gradient($intro-dark-overlay, $intro-dark-overlay),
-        url('../../assests/images/intro-background.jpeg');
-    display: flex;
-    justify-content: $center-align;
-    align-items: $center-align;
-    position: relative;
-    z-index: 1;
+    height: $value-100percentage;
+    background-color: $intro-dark-overlay;
+    z-index: -1;
+  }
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: $value-100percentage;
-        height: $value-100percentage;
-        background-color: $intro-dark-overlay;
-        z-index: -1;
-    }
-
-    .intro-content {
-        text-align: $center-align;
-        color: $white;
-        max-width: 800px;
-        padding: 20px;
-        margin-top: 14rem;
-
-        .intro-title {
-            font-size: 3em;
-            font-weight: 500;
-            margin-bottom: 40px;
-            line-height: 1.2;
-        }
-
-        .intro-buttons {
-            display: flex;
-            justify-content: $center-align;
-            gap: 20px;
-        }
-    }
-}
-
-.button {
-    padding: 15px 35px;
-    border-radius: 30px;
-    font-size: 1em;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all $transition-speed;
-    border: 1px solid $white;
-}
-
-.primary-button {
-    @extend .button;
-    background-color: $white;
-    color: $black;
-
-    &:hover {
-        background-color: $white;
-    }
-}
-
-.secondary-button {
-    @extend .button;
-    background-color: transparent;
+  .intro-content {
+    text-align: $center-align;
     color: $white;
+    max-width: 800px;
+    padding: 20px;
+    margin-top: 14rem;
 
-    &:hover {
-        background-color: $white;
-        color: $black;
+    .intro-title {
+      font-size: 3em;
+      font-weight: 500;
+      margin: 0;
+      line-height: 1.2;
     }
-}
+    .intro-subtitle {
+      font-size: 1.2em;
+      color: $tagline-color;
 
-// --- Responsive Adjustments ---
+      font-size: 1.5rem;
+      margin: 0;
+      font-family: serif;
+    }
+  }
+}
 
 @media (max-width: 1024px) {
-    .intro-section-container {
-        background-position: $center-align $center-align;
-        background-size: contain;
-        background-color: $black;
-    }
+  .intro-section-container {
+    background-position: $center-align $center-align;
+    background-size: contain;
+    background-color: $black;
+  }
 }
 
 @media (max-width: 768px) {
-    .intro-section-container {
-        .intro-content {
-            .intro-title {
-                font-size: 2.5em;
-                margin-bottom: 30px;
-            }
-
-            .intro-buttons {
-                flex-direction: $flex-column;
-                align-items: $center-align;
-                gap: 15px;
-            }
-        }
+  .intro-section-container {
+    .intro-content {
+      .intro-title {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+      }
     }
-
-    .button {
-        width: fit-content;
-        max-width: 280px;
-    }
+  }
 }
 
 @media (max-width: 480px) {
-    .intro-section-container {
-        background-attachment: scroll;
-        .intro-content {
-            .intro-title {
-                font-size: 1.8em;
-                margin-bottom: 25px;
-            }
-        }
+  .intro-section-container {
+    background-attachment: scroll;
+    .intro-content {
+      .intro-title {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+      }
     }
-
-    .button {
-        padding: 12px 25px;
-        font-size: 0.9em;
-        width: fit-content;
-    }
+  }
 }
