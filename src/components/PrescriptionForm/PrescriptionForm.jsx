@@ -243,7 +243,6 @@ const PrescriptionForm = () => {
                 <button className="print-action-btn" onClick={() => window.print()}>Print Prescription</button>
             </div>
 
-            {/* Conditional Rendering Logic */}
             {showPreview ? (
                 <div className="prescription-paper">
                     <div className="watermark"><img src={Logo} alt="watermark" /></div>

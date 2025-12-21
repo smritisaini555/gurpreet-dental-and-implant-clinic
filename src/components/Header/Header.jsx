@@ -11,7 +11,6 @@ const Header = ({ onNavigate }) => {
 
     const closeDropdown = () => setIsDropdownOpen(false);
 
-    // FIX: Lock body scroll when mobile menu is active to enable internal scrolling
     useEffect(() => {
         if (isMenuOpen) {
             document.body.style.overflow = 'hidden';
@@ -176,7 +175,6 @@ const Header = ({ onNavigate }) => {
                             </li>
                         ))}
 
-                        {/* --- NEW DOCTOR LOGIN LINK --- */}
                         <li className="doctor-login-nav">
                             <a 
                                 href="/prescription" 

@@ -333,3 +333,9 @@ html, body {
     }
   }
 }
+
+@media (max-width: 580px) {
+  .doctor-login-nav {
+    display: none;
+  }
+}

@@ -43,50 +43,6 @@
         margin-bottom: 40px;
         color: $off-white;
     }
-    
-    .about-buttons {
-        display: flex;
-        gap: 20px;
-    }
-}
-
-.aboutbutton {
-    padding: 15px 35px;
-    border-radius: 30px;
-    font-size: 1em;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.read-more-button {
-    @extend .aboutbutton;
-    background-color: $primary-button-bg;
-    color: $black;
-    border: 1px solid $primary-button-bg;
-    
-    &:hover {
-        background-color: $primary-button-hover;
-        border-color: $primary-button-hover;
-    }
-}
-
-.visit-us-button {
-    @extend .aboutbutton;
-    background-color: transparent;
-    color: $white;
-    border: 1px solid $white;
-    
-    &:hover {
-        background-color: $white;
-        color: $black;
-    }
-}
-
-.button {
-    
 }
 
 @media (max-width: 992px) {
@@ -128,17 +84,6 @@
     .about-description {
         font-size: 0.9em;
     }
-    
-    .about-buttons {
-        flex-direction: column;
-        align-items: $center-align;
-        width: $value-100percentage;
-    }
-
-    .button {
-        width: 80%;
-        max-width: 300px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -152,11 +97,5 @@
 
     .about-description {
         font-size: 0.85em;
-    }
-
-    .button {
-        width: 90%;
-        padding: 10px 20px;
-        font-size: 0.9em;
     }
 }
