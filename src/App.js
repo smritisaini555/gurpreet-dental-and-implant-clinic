@@ -14,6 +14,7 @@ import VideoTestimonials from './components/VideoTestimonials/VideoTestimonials'
 import TreatmentDetail from './pages/TreatmentDetail/TreatmentDetail';
 import MeetOurDoctors from './components/MeetOurDoctors/MeetOurDoctors';
 import InvisalignModal from './components/InvisalignModal/InvisalignModal'
+import PrescriptionForm from './components/PrescriptionForm/PrescriptionForm'; 
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -21,6 +22,14 @@ const ScrollToTop = () => {
         window.scrollTo(0, 0);
     }, [pathname]);
     return null;
+};
+
+// Helper to hide Sticky Bar on the Prescription page
+const ConditionalStickyBar = () => {
+    const { pathname } = useLocation();
+    // Hide the sticky contact bar if we are on the prescription page
+    if (pathname === '/prescription') return null;
+    return <StickyContactBar />;
 };
 
 const HomePageContent = () => {
@@ -37,10 +46,10 @@ const HomePageContent = () => {
     }, []);
 
     const handleClose = () => {
-        setIsAnimating(false); 
+        setIsAnimating(false);
         setTimeout(() => {
-            setIsModalOpen(false);
-        }, 400); 
+            setIsModalOpen(false); 
+        }, 400);
     };
 
     return (
@@ -82,7 +91,8 @@ function App() {
         <div className="App">
             <BrowserRouter> 
                 <ScrollToTop />
-                <StickyContactBar />
+                
+                <ConditionalStickyBar />
 
                 <Routes>
                     <Route path="/" element={<HomePageContent />} />
@@ -104,6 +114,12 @@ function App() {
                             </PageWrapper>
                         } 
                     />
+
+                    <Route 
+                        path="/prescription" 
+                        element={<PrescriptionForm />} 
+                    />
+
                 </Routes>
             </BrowserRouter>
         </div>

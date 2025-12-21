@@ -5,8 +5,8 @@ import doctor3 from '../assests/images/doctors/doctor3.png';
 import doctor4 from '../assests/images/doctors/doctor4.png';
 
 export const executiveDirector = {
-    name: "Dr. Joseph Smith",
-    role: "Executive Director",
+    name: "Mr. Gurpreet Singh",
+    role: "Founder",
     image: directorImage, // Ensure this path is correct
     description: "Dr. Joseph Smith has over 20 years of experience in advanced dental care and implantology. As the Executive Director, he leads our clinic with a commitment to clinical excellence and patient-centered care, ensuring that every treatment plan is tailored to the unique needs of our patients."
 };

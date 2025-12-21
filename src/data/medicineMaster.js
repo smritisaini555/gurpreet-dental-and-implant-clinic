@@ -1,0 +1,16 @@
+export const medicineMaster = [
+  { id: 1, name: "Amoxicillin", strength: "500mg", salt: "Amoxicillin Trihydrate IP"},
+  { id: 2, name: "Paracetamol", strength: "650mg", salt: "Paracetamol Tablets IP" },
+  { id: 3, name: "Metronidazole", strength: "400mg", salt: "Metronidazole IP"},
+  { id: 4, name: "Ketorol DT", strength: "10mg", salt: "Ketorolac Tromethamine IP" },
+  { id: 5, name: "Chlorhexidine Mouthwash", strength: "0.2%", salt: "Chlorhexidine Gluconate IP" },
+  { id: 6, name: "Clavmox", strength: "625LB", salt: "Amoxycillin Potassium Clavulanate & Lactic Acid Bacillus Tablets" },
+  { id: 7, name: "Bactofix", strength: "200mg", salt: "Cefixime Trihydrate Dispersible Tablet I.P" },
+  { id: 8, name: "Cephalkem", strength: "500mg", salt: "Cephalexin Capsules IP" },
+  { id: 9, name: "Briska-S", strength: "", salt: "Aceclofenac, Paracetamol & Serratiopeptidase Tablets" },
+  { id: 10, name: "Omeprazole DSR", strength: "", salt: "Omeprazole" },
+  { id: 11, name: "MetroHex Plus", strength: "", salt: "Chlorhexidine Gluconate 1% w/w, Metronidazole 1% w/w and Lignocaine Hydrochlroide 2% w/w Gel" },
+  { id: 12, name: "Dologel-CT", strength: "", salt: "Analgesic and Antiseptic Gel" },
+  { id: 13, name: "Remin", strength: "", salt: "" },
+  { id: 14, name: "Caziq", strength: "", salt: "Triamcinolone Acetonide Buccal Paste" },
+];

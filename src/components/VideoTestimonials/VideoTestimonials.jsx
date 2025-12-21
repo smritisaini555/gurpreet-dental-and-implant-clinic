@@ -185,7 +185,6 @@ const VideoTestimonialsSection = () => {
                     <div className="video-t-card-info">
                         <div className="video-t-header">
                             <p className="video-t-name">{testimonial.name}</p>
-                            <p className="video-t-designation">{testimonial.designation}</p>
                         </div>
                         <div className="video-t-footer-bar">
                             <div className="video-t-rating-container">

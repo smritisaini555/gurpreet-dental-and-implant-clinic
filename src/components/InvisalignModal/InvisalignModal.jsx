@@ -10,7 +10,7 @@ const InvisalignModal = ({ isAnimating, onClose }) => {
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="modal-header">
-                    <h3>Certified Invisalign Provider</h3>
+                    <h3>IDA (Indian Dental Association) Awarded Clinic</h3>
                     <button className="close-x" onClick={onClose}>&times;</button>
                 </div>
                 <div className="modal-body">

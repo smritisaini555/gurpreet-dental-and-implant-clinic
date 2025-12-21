@@ -175,6 +175,17 @@ const Header = ({ onNavigate }) => {
                                 </a>
                             </li>
                         ))}
+
+                        {/* --- NEW DOCTOR LOGIN LINK --- */}
+                        <li className="doctor-login-nav">
+                            <a 
+                                href="/prescription" 
+                                className="doctor-link"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Doctor Login
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>

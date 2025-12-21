@@ -104,7 +104,6 @@
       iframe {
         width: $value-100percentage;
         height: $value-100percentage;
-        object-fit: cover; // Changed from block to cover for better fit
         display: block;
       }
 
