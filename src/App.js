@@ -10,6 +10,8 @@ import Footer from './components/Footer/Footer';
 import TestimonialsSection from './components/Testimonials/Testimonials';
 import BookingPage from './components/BookingPage/BookingPage';
 import StickyContactBar from './components/StickyContactBar/StickyContactBar'; 
+// Import your new component here
+import StickyAppointmentActions from './components/StickyAppointmentActions/StickyAppointmentActions';
 import VideoTestimonials from './components/VideoTestimonials/VideoTestimonials';
 import TreatmentDetail from './pages/TreatmentDetail/TreatmentDetail';
 import MeetOurDoctors from './components/MeetOurDoctors/MeetOurDoctors';
@@ -25,12 +27,17 @@ const ScrollToTop = () => {
     return null;
 };
 
-// Helper to hide Sticky Bar on the Prescription page
 const ConditionalStickyBar = () => {
     const { pathname } = useLocation();
-    // Hide the sticky contact bar if we are on the prescription page
+    
     if (pathname === '/prescription') return null;
-    return <StickyContactBar />;
+    
+    return (
+        <>
+            <StickyContactBar />
+            <StickyAppointmentActions />
+        </>
+    );
 };
 
 const HomePageContent = () => {
@@ -38,7 +45,6 @@ const HomePageContent = () => {
     const [isAnimating, setIsAnimating] = useState(false);
 
     useEffect(() => {
-        // Trigger on every load
         const timer = setTimeout(() => {
             setIsModalOpen(true);
             setIsAnimating(true);
@@ -94,6 +100,7 @@ function App() {
             <BrowserRouter> 
                 <ScrollToTop />
                 
+                {/* This now calls both the Contact Bar and the Appointment Actions */}
                 <ConditionalStickyBar />
 
                 <Routes>

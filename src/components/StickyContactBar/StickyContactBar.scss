@@ -1,151 +1,15 @@
-// // Import your variables file here if it's separate (e.g., @import 'variables';)
-// @import '../../styles/variables.scss';
-// // Local Variables for Sizing
-// // 🌟 FIX: Increased size for a bolder, more prominent look
-// $bar-width: 60px;
-// $shadow-color: rgba(0, 0, 0, 0.6); // Using a specific shadow value
-
-// .sticky-contact-bar-wrapper {
-//     // Positioning
-//     position: fixed;
-//     top: 58%;
-//     transform: translateY(-50%);
-//     z-index: 99999; // Keep high z-index for layering over header
-
-//     // Positioned to the LEFT side as requested
-//     left: 0;
-
-//     // Width & Layout
-//     // 🌟 USE NEW WIDTH
-//     width: $bar-width;
-//     display: flex;
-//     flex-direction: $flex-column;
-//     // Using $card-bg for the dark background
-//     background-color: $card-bg;
-//     box-shadow: 0 4px 10px $shadow-color;
-
-//     // 🌟 FIX: Remove border-radius on wrapper for clean rectangular boxes
-//     border-radius: 10px;
-//     overflow: hidden;
-
-//     .contact-link {
-//         display: flex;
-//         align-items: $center-align;
-//         justify-content: $center-align;
-//         // 🌟 USE NEW HEIGHT
-//         height: $bar-width;
-//         // Icon color is white/off-white for dark background
-//         color: $white;
-//         border: none;
-//         transition: $transition-speed; // <-- This is key for the smooth transition!
-//         text-decoration: none;
-
-//         /* Ensure the initial state is clean for transformation */
-//         transform: scale(1);
-
-//         // 🌟 FIX: Apply a bottom border to every link to create the separate box look
-//         border-bottom: 1px solid $border-light;
-
-//         // Remove border from the last item
-//         &:last-child {
-//             border-bottom: none;
-//         }
-
-//         // Separator logic for utility groups: we only need to ensure the top border
-//         // from the old logic is removed, as border-bottom now handles separation.
-//         &.utility-link:first-of-type {
-//             border-top: none;
-//             // The separation is naturally handled by the border-bottom of the previous item.
-//         }
-
-//         // Hover Effect
-//         &:hover {
-//             // 🌟 NEW: Make the div 10% larger on hover
-//             transform: scale(1.1);
-//             // Important: Use transform-origin to make it grow from the left side.
-//             // Since it's fixed to the left, growing from the center would push it right.
-//             transform-origin: left center;
-//             z-index: 100000;
-//             /* Optional: ensures the hovered element is truly on top */
-
-//             // Use the primary accent color for the icon on hover
-//             color: $accent-color;
-//             background-color: lighten($card-bg, 5%);
-
-//             // Overriding hover colors for standard social branding
-//             &.whatsapp {
-//                 color: #25D366;
-//             }
-
-//             &.instagram {
-//                 color: #C13584;
-//             }
-
-//             &.facebook {
-//                 color: #1877F2;
-//             }
-
-//             &.email {
-//                 color: #FF0000;
-//             }
-//         }
-//     }
-// }
-
-// // --- Responsive/Mobile Adjustment ---
-// @media (max-width: 768px) {
-//     .sticky-contact-bar-wrapper {
-//         // Mobile Pattern: Move to the bottom of the screen
-//         width: $value-100percentage;
-//         flex-direction: row;
-//         top: auto; // Remove top centering
-//         bottom: 0;
-//         left: 0;
-//         right: 0;
-//         border-radius: 0;
-//         box-shadow: 0 -2px 10px $shadow-color;
-
-//         .contact-link {
-//             flex-grow: 1;
-//             // 🌟 USE NEW BAR WIDTH FOR MOBILE HEIGHT
-//             height: $bar-width;
-
-//             // Remove vertical borders for the horizontal row layout
-//             border-bottom: none;
-//             // Add vertical separators between icons on mobile
-//             border-right: 1px solid $border-light;
-
-//             &:last-child {
-//                 border-right: none;
-//             }
-
-//             // 🌟 Mobile Hover should not scale, or it breaks the layout!
-//             &:hover {
-//                 transform: none;
-//                 transform-origin: center center;
-//             }
-//         }
-//     }
-// }
-
-
-// Import your variables file here if it's separate (e.g., @import 'variables';)
 @import '../../styles/variables.scss';
-// Local Variables for Sizing
-$bar-width: 60px; // The height and width of the individual box
-$gap-size: 10px; // Vertical margin/gap between icons
-$total-spacing: $bar-width + $gap-size; // 70px (for calculation)
+$bar-width: 60px;
+$gap-size: 10px;
+$total-spacing: $bar-width + $gap-size;
 $shadow-color: rgba(0, 0, 0, 0.6); 
 
 .sticky-contact-bar-wrapper {
-    // DESKTOP: Only a positioning container
     position: fixed;
-    top: 33%; // Anchor point for the first icon
+    top: 33%;
     transform: translateY(-50%); 
     z-index: 99999; 
     left: 0;
-
-    // Remove all layout, background, and shadow from the wrapper
     width: auto; 
     display: block; 
     background-color: transparent; 
@@ -154,12 +18,9 @@ $shadow-color: rgba(0, 0, 0, 0.6);
     overflow: visible; 
 
     .contact-link {
-        // DESKTOP: Each link is an independent fixed box
         margin-bottom: $gap-size;
         position: absolute; 
         left: 0; 
-        
-        // Appearance
         display: flex;
         align-items: $center-align;
         justify-content: $center-align;
@@ -168,51 +29,34 @@ $shadow-color: rgba(0, 0, 0, 0.6);
         background-color: $card-bg; 
         color: $white; 
         text-decoration: none; 
-        
-        // Shadow and Radius are applied to each box
         box-shadow: 0 2px 5px $shadow-color; 
         border-radius: 10px; 
-        
-        // Transitions for smooth hover effects
         transition: $transition-speed; 
         transform: scale(1);
-        z-index: 1; /* Base Z-index */
+        z-index: 1;
         
-        // Corrected Positioning logic (Now accounts for $gap-size)
-        // Link Index (n) | Offset Calculation (n-1) * $total-spacing
-        
-        // First link: top: 0 (No offset)
-        
-        // Second link: 1 * $total-spacing (70px) down
         &:nth-child(2) {
             top: $total-spacing; 
         }
-        // Third link: 2 * $total-spacing (140px) down
         &:nth-child(3) {
             top: $total-spacing * 2;
         }
-        // Fourth link: 3 * $total-spacing (210px) down
         &:nth-child(4) {
             top: $total-spacing * 3;
         }
-        // Fifth link: 4 * $total-spacing (280px) down
         &:nth-child(5) {
             top: $total-spacing * 4;
         }
-        // Sixth link: 5 * $total-spacing (350px) down
         &:nth-child(6) {
             top: $total-spacing * 5;
         }
 
-        // Remove margin-bottom from the last item
         &:last-child {
             margin-bottom: 0;
         }
 
-        // Border/Separators are not needed
         border: none; 
 
-        // Hover Effect
         &:hover {
             transform: scale(1.1); 
             transform-origin: left center; 
@@ -221,7 +65,6 @@ $shadow-color: rgba(0, 0, 0, 0.6);
             color: $accent-color; 
             background-color: lighten($card-bg, 5%); 
             
-            // Overriding hover colors for standard social branding
             &.whatsapp { color: #25D366; } 
             &.instagram { color: #C13584; } 
             &.facebook { color: #1877F2; } 
