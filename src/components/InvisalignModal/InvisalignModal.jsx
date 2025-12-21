@@ -1,6 +1,6 @@
 import React from 'react';
 import './InvisalignModal.scss';
-import InvisalignImg from '../../assests/images/invisalign-provider.jpg';
+import InvisalignImg from '../../assests/images/invisalign-provider.png';
 
 const InvisalignModal = ({ isAnimating, onClose }) => {
     return (
