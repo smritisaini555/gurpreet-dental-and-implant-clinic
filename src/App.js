@@ -15,6 +15,7 @@ import TreatmentDetail from './pages/TreatmentDetail/TreatmentDetail';
 import MeetOurDoctors from './components/MeetOurDoctors/MeetOurDoctors';
 import InvisalignModal from './components/InvisalignModal/InvisalignModal'
 import PrescriptionForm from './components/PrescriptionForm/PrescriptionForm'; 
+import WhyUs from './components/WhyUs/WhyUs';
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -63,6 +64,7 @@ const HomePageContent = () => {
             <Header />
             <IntroSection />
             <About />
+            <WhyUs />
             <Services />
             <MeetOurDoctors />
             <TestimonialsSection />

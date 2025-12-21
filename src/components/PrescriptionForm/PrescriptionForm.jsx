@@ -258,8 +258,7 @@ const PrescriptionForm = () => {
                             </div>
                         </div>
                         <div className="header-right">
-                            <p className="dr-name">GURPREET SINGH</p>
-                            <p>Dr. HARMANJOT SINGH (BDS) Pb.</p>
+                            <p className="dr-name">Dr. HARMANJOT SINGH (BDS) Pb.</p>
                             <p>MACHHIWARA SAHIB (141115)</p>
                             <p>98763-24499, 96465-34694</p>
                             <p>Drgurpreetsingh1@gmail.com</p>
