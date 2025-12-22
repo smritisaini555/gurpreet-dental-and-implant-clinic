@@ -11,9 +11,9 @@ import videoTestimonial5 from '../../assests/videos/videoTestimonial5.mp4';
 const videoTestimonialData = [
     { id: 1, videoUrl: `${videoTestimonial1}#t=0.1`, name: 'Arjun Singh', designation: 'Aesthetics Patient', rating: 5 },
     { id: 2, videoUrl: `${videoTestimonial2}#t=0.1`, name: 'Priya Sharma', designation: 'Endodontics Patient', rating: 5 },
-    { id: 3, videoUrl: `${videoTestimonial3}#t=0.1`, name: 'Karan Mehra', designation: 'Orthodontics Patient', rating: 4 },
+    { id: 3, videoUrl: `${videoTestimonial3}#t=0.1`, name: 'Harpreet Kaur', designation: 'Orthodontics Patient', rating: 5 },
     { id: 4, videoUrl: `${videoTestimonial4}#t=0.1`, name: 'Harleen Kaur', designation: 'Oral Surgery Patient', rating: 5 },
-    { id: 5, videoUrl: `${videoTestimonial5}#t=0.1`, name: 'Rajesh Verma', designation: 'Preventive Patient', rating: 4 }
+    { id: 5, videoUrl: `${videoTestimonial5}#t=0.1`, name: 'Lovepreet Kaur', designation: 'Preventive Patient', rating: 5 }
 ];
 
 const CLONES_COUNT = 3;
