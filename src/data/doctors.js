@@ -23,7 +23,10 @@ export const doctorsList = [
     name: "Dr. Harmanjot Singh",
     specialty: "Orthodontist",
     image: doctor1,
-    description: "Dr. Harmanjot Singh is a highly skilled dental surgeon specializing in Fellowship-grade Implantology and Advanced Micro-Endodontics. Trained under world-renowned mentors, he combines microscopic precision with aesthetic artistry to deliver \"Gold Standard\" care, ranging from complex tooth replacements to high-precision, painless root canal treatments."
+    description: (
+      <>
+      Dr. Harmanjot Singh is a highly skilled dental surgeon specialized in Fellowship-grade Implantology and Advanced Micro-Endodontics. Trained under world-renowned mentors (<strong>Dr. Sameer Kaura</strong> and <strong>Dr. C.P. Chugh</strong>), he combines microscopic precision with aesthetic artistry to deliver Gold Standard care, ranging from complex tooth replacements to high-precision, painless root canal treatments.</>
+    )
   },
   {
     name: "Dr. Richard Dickson",
