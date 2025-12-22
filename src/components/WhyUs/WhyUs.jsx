@@ -107,7 +107,8 @@ const WhyUs = () => {
                         <span className="tagline">SINCE 1995</span>
                         <h2 className="title">Why Families Choose Us</h2>
                         <p className="description">
-                            Welcome to <strong>Gurpreet Dental & Implant Centre</strong>, the premier destination for clinical excellence in Machhiwara Sahib.
+                            Your health and safety is a major concern for us, so sterilization and infection prevention are our top priorities.
+We maintain the highest standards of cleanliness and sterility, and our staff is specially trained in Universal (Standard) Precautions.
                         </p>
                         <div className="points-grid">
                             {points.map((point, index) => (
