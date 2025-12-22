@@ -5,11 +5,10 @@ import './BookingPage.scss';
 
 // Set the API_BASE_URL for local development (as you have done)
 // For production, you must change this back to the Render URL or use environment variables.
-// const API_BASE_URL = 'https://gurpreet-dental-and-implant-clinic.onrender.com/api';
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = 'https://gurpreet-dental-and-implant-clinic.onrender.com/api';
+// const API_BASE_URL = 'http://localhost:3001/api';
 
 const DOCTOR_LIST = [
-    { id: 'gurpreet', name: 'Dr. Gurpreet' },
     { id: 'harmanjot', name: 'Dr. Harmanjot' },
 ];
 
