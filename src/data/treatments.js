@@ -67,11 +67,11 @@ export const treatmentDetails = {
         images: [painlessRootTreatment]
     },
     "cbct-opg": {
-        name: 'CBCT & OPG',
+        name: 'OPG',
         displayTitle: 'Advanced 3D & 2D Dental Imaging',
-        description: 'Our clinic is equipped with state-of-the-art diagnostic tools like CBCT (3D imaging) and OPG (panoramic X-rays) for precise treatment planning.',
+        description: 'Our clinic is equipped with state-of-the-art diagnostic tools like OPG (panoramic X-rays) for precise treatment planning.',
         features: [
-            { label: "CBCT (3D)", text: "Provides a detailed 3D view of bones, nerves, and tissues—critical for implants and complex surgeries." },
+            { label: "Dental RVG (Digital X-Ray)", text: "Instant High-Resolution Images, Precision Root Canal Therapy, Enhanced Diagnostic Tools, Eco-Friendly & Safe." },
             { label: "OPG (2D)", text: "A panoramic view of the entire upper and lower jaw in a single image." },
             { label: "Low Radiation", text: "Digital sensors ensure minimal exposure while providing high-definition clarity." }
         ],
