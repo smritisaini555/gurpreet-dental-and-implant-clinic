@@ -7,13 +7,15 @@ import videoTestimonial2 from '../../assests/videos/videoTestimonial2.mp4';
 import videoTestimonial3 from '../../assests/videos/videoTestimonial3.mp4';
 import videoTestimonial4 from '../../assests/videos/videoTestimonial4.mp4';
 import videoTestimonial5 from '../../assests/videos/videoTestimonial5.mp4';
+import videoTestimonial6 from '../../assests/videos/videoTestimonial6.mp4';
 
 const videoTestimonialData = [
-    { id: 1, videoUrl: `${videoTestimonial1}#t=0.1`, name: 'Arjun Singh', designation: 'Aesthetics Patient', rating: 5 },
+    { id: 1, videoUrl: `${videoTestimonial1}#t=0.1`, name: 'Mandeep Kaur', designation: 'Aesthetics Patient', rating: 5 },
     { id: 2, videoUrl: `${videoTestimonial2}#t=0.1`, name: 'Priya Sharma', designation: 'Endodontics Patient', rating: 5 },
     { id: 3, videoUrl: `${videoTestimonial3}#t=0.1`, name: 'Harpreet Kaur', designation: 'Orthodontics Patient', rating: 5 },
     { id: 4, videoUrl: `${videoTestimonial4}#t=0.1`, name: 'Harleen Kaur', designation: 'Oral Surgery Patient', rating: 5 },
-    { id: 5, videoUrl: `${videoTestimonial5}#t=0.1`, name: 'Lovepreet Kaur', designation: 'Preventive Patient', rating: 5 }
+    { id: 5, videoUrl: `${videoTestimonial5}#t=0.1`, name: 'Navpreet Kaur', designation: 'Preventive Patient', rating: 5 },
+    { id: 6, videoUrl: `${videoTestimonial6}#t=0.1`, name: 'Ajmer Singh', designation: 'Preventive Patient', rating: 5 }
 ];
 
 const CLONES_COUNT = 3;
