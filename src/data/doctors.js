@@ -3,6 +3,7 @@ import doctor1 from '../assests/images/doctors/doctor1.png';
 import doctor2 from '../assests/images/doctors/doctor2.jpeg';
 import doctor3 from '../assests/images/doctors/doctor3.jpeg';
 import doctor4 from '../assests/images/doctors/doctor4.jpeg';
+import doctor5 from '../assests/images/doctors/doctor5.webp';
 
 export const executiveDirector = {
     name: "Mr. Gurpreet Singh",
@@ -32,7 +33,7 @@ export const doctorsList = [
   {
     name: "Dr. Amreen Kaur",
     specialty: "BDS, MDS (Endodontics & Conservative Dentistry) Root Canal Specialist & Restorative Surgeon",
-    image: doctor3,
+    image: doctor2,
     highlights: [
         { label: "Single-Visit Root Canals", text: "Utilizing the latest technology for faster and more efficient treatments." },
         { label: "Saving Natural Teeth", text: "Expert in treating deep infections and fractured teeth that would otherwise require extraction." },
@@ -42,7 +43,7 @@ export const doctorsList = [
   {
     name: "Dr. Vishal Sharma",
     specialty: "Orthodontist",
-    image: doctor4,
+    image: doctor3,
     highlights: [
         { label: "Surgery", text: "Highly skilled in complex wisdom tooth extractions and reconstructive surgery." },
         { label: "Trauma Care", text: "Expert in advanced maxillofacial reconstructive oral surgery." }
@@ -51,11 +52,20 @@ export const doctorsList = [
   {
     name: "Dr. Gagandeep Singh",
     specialty: "MDS Endodontics | Specialist in Micro-Root Canals",
-    image: doctor2,
+    image: doctor4,
     highlights: [
         { label: "Microscopic Precision", text: "Utilizing the Dental Operating Microscope for 100% accuracy in complex canal treatments." },
         { label: "Academic Excellence", text: "An alumnus of top-tier institutions, bringing the latest evidence-based techniques to Machhiwara Sahib." },
         { label: "Advanced Mentorship", text: "A recognized mentor who has trained numerous dentists, including our own Dr. Harmanjot Singh, in the field of Advanced Endodontics." },
+    ]
+  },
+  {
+    name: "Dr. Nikita",
+    specialty: "Orthodontist",
+    image: doctor5,
+    highlights: [
+        { label: "Surgery", text: "Highly skilled in complex wisdom tooth extractions and reconstructive surgery." },
+        { label: "Trauma Care", text: "Expert in advanced maxillofacial reconstructive oral surgery." }
     ]
   }
 ];
