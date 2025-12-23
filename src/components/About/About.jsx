@@ -10,11 +10,25 @@ const About = () => {
                     <div className='about-content'>
                         <h2 className='about-main-title'>WELCOME TO GDIC</h2>
                         <h3 className='about-subtitle'>ABOUT US</h3>
-                        <p className='about-description'>
-                            Founded in 1995, GDIC was established to offer simpler solutions for Dental problems & to improve Smile, Aesthetics,
-                            Oral health & function through our qualified dentists. Our team includes qualified dentists, dental technicians who are constantly
-                            improving their skills and knowledge by participating in numerous courses and seminars both in India & abroad.
-                        </p>
+                        <div className='about-description'>
+                            <p>
+                                Founded in 1995, Gurpreet Dental & Implant Centre (GDIC) was established to offer 
+                                simpler solutions for dental problems and to improve smile, aesthetics, oral health, 
+                                and function through our qualified dentists. Our team includes 
+                                skilled dental technicians and visiting specialists who are constantly improving 
+                                their skills by participating in numerous courses and seminars both in India and 
+                                abroad to bring global standards to Machhiwara Sahib.
+                            </p>
+                            <br />
+                            <p>
+                                We specialize in high-precision diagnostics featuring **Digital OPG** for 
+                                comprehensive full-mouth panoramic X-rays, ensuring accurate treatment planning 
+                                with minimal radiation exposure. Your safety is our 
+                                benchmark; we adhere to rigorous infection prevention protocols, including 
+                                **Ultrasonic Cleaning** and hospital-grade sterilization to ensure your 
+                                peace of mind during every visit.
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div className='about-right-column'>

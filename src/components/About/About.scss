@@ -5,7 +5,7 @@
     background-color: #000;
     display: flex;
     align-items: $center-align;
-    padding: 0 5%;
+    padding: 60px 5%; 
     position: relative;
     overflow: hidden;
 }
@@ -19,7 +19,7 @@
 }
 
 .about-left-column {
-    flex: 1;
+    flex: 1.2; 
     z-index: 2;
 }
 
@@ -74,17 +74,25 @@
     .about-subtitle {
         font-size: 1.2em;
         font-weight: 500;
-        color: $off-white;
+        color: $accent-color; 
         margin-bottom: 25px;
         text-transform: uppercase;
         letter-spacing: 1px;
     }
     
     .about-description {
-        font-size: 1em;
-        line-height: 1.6;
+        font-size: 1.05em; 
+        line-height: 1.8; 
         margin-bottom: 40px;
         color: $off-white;
+
+        p {
+            margin-bottom: 15px; 
+        }
+
+        strong {
+            color: $white; 
+        }
     }
 }
 
@@ -107,7 +115,7 @@
 
 @media (max-width: 768px) {
     .about-section-container {
-        padding: 0 5%;
+        padding: 40px 5%;
     }
 
     .about-main-title {
