@@ -3,12 +3,23 @@ import conservativeImage from '../../assests/images/conservative.jpg';
 import aestheticsImage from '../../assests/images/aesthetics.jpg';
 import orthodonticsImage from '../../assests/images/orthodontics.jpg';
 import service4Image from '../../assests/images/Oral-Surgeon-3.jpg';
-import service5Image from '../../assests/images/preventive.jpeg';
+import preventive from '../../assests/images/preventive.jpeg';
 import "./Services.scss";
 
 const serviceData = [
   {
     id: 1,
+    image: preventive,
+    title: 'PREVENTIVE DENTISTRY',
+    subtitle: 'Keeping Your Smile Healthy',
+    descriptionPoints: [
+      { term: 'CLEANING:', text: 'Routine dental cleanings and polishing to remove plaque and tartar.' },
+      { term: 'FLUORIDE:', text: 'Fluoride treatments to strengthen enamel and prevent cavities.' },
+      { term: 'SEALANTS:', text: 'Application of dental sealants to protect molars from decay.' },
+    ]
+  },
+  {
+    id: 2,
     image: conservativeImage,
     title: 'CONSERVATIVE & ENDODONTICS',
     subtitle: 'DENTAL COMPOSITE',
@@ -18,7 +29,7 @@ const serviceData = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     image: aestheticsImage,
     title: 'AESTHETICS & PROSTHESIS',
     subtitle: 'retainer & partial denture',
@@ -32,7 +43,7 @@ const serviceData = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     image: orthodonticsImage,
     title: 'ORTHODONTICS & PAEDIATRIC DENTISTRY',
     subtitle: 'BRACES',
@@ -41,7 +52,7 @@ const serviceData = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     image: service4Image,
     title: 'PERIODONTICS & ORAL SURGERY',
     subtitle: 'Gum Health & Extractions',
@@ -50,17 +61,6 @@ const serviceData = [
       { term: 'ORAL SURGERY:', text: 'Wisdom tooth extraction, minor surgical procedures, and dental implants.' },
     ]
   },
-  {
-    id: 5,
-    image: service5Image,
-    title: 'PREVENTIVE DENTISTRY',
-    subtitle: 'Keeping Your Smile Healthy',
-    descriptionPoints: [
-      { term: 'CLEANING:', text: 'Routine dental cleanings and polishing to remove plaque and tartar.' },
-      { term: 'FLUORIDE:', text: 'Fluoride treatments to strengthen enamel and prevent cavities.' },
-      { term: 'SEALANTS:', text: 'Application of dental sealants to protect molars from decay.' },
-    ]
-  }
 ];
 
 const AUTO_SCROLL_INTERVAL = 3000;
