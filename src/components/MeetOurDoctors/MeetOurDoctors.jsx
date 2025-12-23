@@ -8,6 +8,7 @@ const MeetOurDoctors = () => {
       <div className="container">
         <h2 className="section-label">Meet Our Doctors</h2>
 
+        {/* Executive Director / Founder Spotlight */}
         <div className="director-spotlight">
           <div className="director-image-container">
             <img
@@ -35,6 +36,7 @@ const MeetOurDoctors = () => {
           </div>
         </div>
 
+        {/* Other Doctors Grid */}
         <div className="doctors-grid">
           {doctorsList.map((doctor, index) => (
             <div key={index} className="doctor-card">
@@ -43,9 +45,19 @@ const MeetOurDoctors = () => {
               </div>
 
               <div className="doctor-details">
+                <span className="specialty">{doctor.specialty}</span>
                 <h4>{doctor.name}</h4>
-                <p className="specialty">{doctor.specialty}</p>
-                <p className="doctor-bio-text">{doctor.description}</p>
+                
+                {/* Updated to render label and text for doctors */}
+                {doctor.highlights && Array.isArray(doctor.highlights) && (
+                  <ul className="highlights-list">
+                    {doctor.highlights.map((item, hIndex) => (
+                      <li key={hIndex} className="highlight-item">
+                        <strong>{item.label}:</strong> {item.text}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
           ))}

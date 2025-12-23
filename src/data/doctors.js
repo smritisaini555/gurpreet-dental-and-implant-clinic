@@ -1,8 +1,8 @@
 import directorImage from '../assests/images/doctors/director.png';
 import doctor1 from '../assests/images/doctors/doctor1.png';
-import doctor2 from '../assests/images/doctors/doctor2.png';
-import doctor3 from '../assests/images/doctors/doctor3.png';
-import doctor4 from '../assests/images/doctors/doctor4.png';
+import doctor2 from '../assests/images/doctors/doctor2.jpeg';
+import doctor3 from '../assests/images/doctors/doctor3.jpeg';
+import doctor4 from '../assests/images/doctors/doctor4.jpeg';
 
 export const executiveDirector = {
     name: "Mr. Gurpreet Singh",
@@ -23,27 +23,39 @@ export const doctorsList = [
     name: "Dr. Harmanjot Singh",
     specialty: "Orthodontist",
     image: doctor1,
-    description: (
-      <>
-      Dr. Harmanjot Singh is a highly skilled dental surgeon specialized in Fellowship-grade Implantology and Advanced Micro-Endodontics. Trained under world-renowned mentors (<strong>Dr. Sameer Kaura</strong> and <strong>Dr. C.P. Chugh</strong>), he combines microscopic precision with aesthetic artistry to deliver Gold Standard care, ranging from complex tooth replacements to high-precision, painless root canal treatments.</>
-    )
+    highlights: [
+        { label: "Expertise", text: "Specialized in Fellowship-grade Implantology and Advanced Micro-Endodontics." },
+        { label: "Mentorship", text: "Trained under world-renowned mentors Dr. Sameer Kaura and Dr. C.P. Chugh." },
+        { label: "Precision", text: "Combines microscopic precision with aesthetic artistry for Gold Standard care." }
+    ]
   },
   {
-    name: "Dr. Richard Dickson",
-    specialty: "Periodontist",
+    name: "Dr. Gagandeep Singh",
+    specialty: "MDS Endodontics | Specialist in Micro-Root Canals",
     image: doctor2,
-    description: "Specializes in laser-assisted gum treatments and dental implant site preservation."
+    highlights: [
+        { label: "Microscopic Precision", text: "Utilizing the Dental Operating Microscope for 100% accuracy in complex canal treatments." },
+        { label: "Academic Excellence", text: "An alumnus of top-tier institutions, bringing the latest evidence-based techniques to Machhiwara Sahib." },
+        { label: "Advanced Mentorship", text: "A recognized mentor who has trained numerous dentists, including our own Dr. Harmanjot Singh, in the field of Advanced Endodontics." },
+    ]
   },
   {
-    name: "Dr. Walter Levitt",
-    specialty: "Endodontist",
+    name: "Dr. Amreen Kaur",
+    specialty: "BDS, MDS (Endodontics & Conservative Dentistry) Root Canal Specialist & Restorative Surgeon",
     image: doctor3,
-    description: "Dedicated to painless root canal treatments using high-precision microscopic technology."
+    highlights: [
+        { label: "Single-Visit Root Canals", text: "Utilizing the latest technology for faster and more efficient treatments." },
+        { label: "Saving Natural Teeth", text: "Expert in treating deep infections and fractured teeth that would otherwise require extraction." },
+        { label: "Aesthetic Fillings", text: "Specialized in 'Conservative Dentistry' to restore the natural look and function of your teeth." },
+    ]
   },
   {
-    name: "Dr. Giles Richardson",
-    specialty: "Oral Surgeon",
+    name: "Dr. Vishal Sharma",
+    specialty: "Orthodontist",
     image: doctor4,
-    description: "Skilled in complex wisdom tooth extractions and advanced reconstructive oral surgery."
+    highlights: [
+        { label: "Surgery", text: "Highly skilled in complex wisdom tooth extractions and reconstructive surgery." },
+        { label: "Trauma Care", text: "Expert in advanced maxillofacial reconstructive oral surgery." }
+    ]
   }
 ];
