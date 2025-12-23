@@ -99,26 +99,26 @@ const ServicesSection = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // useEffect(() => {
-  //   const autoScroll = () => {
-  //     setCurrentSlide(prevSlide => {
-  //       if (prevSlide === totalActualSlides) {
-  //         setIsTransitioning(false);
+  useEffect(() => {
+    const autoScroll = () => {
+      setCurrentSlide(prevSlide => {
+        if (prevSlide === totalActualSlides) {
+          setIsTransitioning(false);
 
-  //         setTimeout(() => {
-  //           setCurrentSlide(0);
-  //         }, 0);
+          setTimeout(() => {
+            setCurrentSlide(0);
+          }, 0);
 
-  //         return 0;
-  //       }
+          return 0;
+        }
 
-  //       return prevSlide + 1;
-  //     });
-  //   };
+        return prevSlide + 1;
+      });
+    };
 
-  //   const intervalId = setInterval(autoScroll, AUTO_SCROLL_INTERVAL);
-  //   return () => clearInterval(intervalId);
-  // }, [totalActualSlides, slidesPerView]);
+    const intervalId = setInterval(autoScroll, AUTO_SCROLL_INTERVAL);
+    return () => clearInterval(intervalId);
+  }, [totalActualSlides, slidesPerView]);
 
   useEffect(() => {
     if (currentSlide === 0 && !isTransitioning) {
