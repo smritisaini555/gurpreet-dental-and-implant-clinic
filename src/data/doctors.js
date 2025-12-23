@@ -30,16 +30,6 @@ export const doctorsList = [
     ]
   },
   {
-    name: "Dr. Gagandeep Singh",
-    specialty: "MDS Endodontics | Specialist in Micro-Root Canals",
-    image: doctor2,
-    highlights: [
-        { label: "Microscopic Precision", text: "Utilizing the Dental Operating Microscope for 100% accuracy in complex canal treatments." },
-        { label: "Academic Excellence", text: "An alumnus of top-tier institutions, bringing the latest evidence-based techniques to Machhiwara Sahib." },
-        { label: "Advanced Mentorship", text: "A recognized mentor who has trained numerous dentists, including our own Dr. Harmanjot Singh, in the field of Advanced Endodontics." },
-    ]
-  },
-  {
     name: "Dr. Amreen Kaur",
     specialty: "BDS, MDS (Endodontics & Conservative Dentistry) Root Canal Specialist & Restorative Surgeon",
     image: doctor3,
@@ -56,6 +46,16 @@ export const doctorsList = [
     highlights: [
         { label: "Surgery", text: "Highly skilled in complex wisdom tooth extractions and reconstructive surgery." },
         { label: "Trauma Care", text: "Expert in advanced maxillofacial reconstructive oral surgery." }
+    ]
+  },
+  {
+    name: "Dr. Gagandeep Singh",
+    specialty: "MDS Endodontics | Specialist in Micro-Root Canals",
+    image: doctor2,
+    highlights: [
+        { label: "Microscopic Precision", text: "Utilizing the Dental Operating Microscope for 100% accuracy in complex canal treatments." },
+        { label: "Academic Excellence", text: "An alumnus of top-tier institutions, bringing the latest evidence-based techniques to Machhiwara Sahib." },
+        { label: "Advanced Mentorship", text: "A recognized mentor who has trained numerous dentists, including our own Dr. Harmanjot Singh, in the field of Advanced Endodontics." },
     ]
   }
 ];
