@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./WhyUs.scss";
 import { useNavigate } from "react-router-dom";
+import whyUsVideo from "../../assests/videos/why-us-video.mp4";
 
 const CounterItem = ({
   targetValue,
@@ -32,7 +33,6 @@ const CounterItem = ({
   }, [hasStarted]);
 
   useEffect(() => {
-    // If shouldCount is false, we don't run the animation interval
     if (!hasStarted || !shouldCount) return;
 
     let start = 0;
@@ -59,7 +59,6 @@ const CounterItem = ({
     >
       <div className="counter-icon">{icon}</div>
       <h3 className="stat-value">
-        {/* If shouldCount is true, show animated 'count'. Otherwise show static 'targetValue' */}
         {shouldCount ? `${count.toLocaleString()}${suffix}` : targetValue}
       </h3>
       <p className="stat-label">{label}</p>
@@ -69,6 +68,32 @@ const CounterItem = ({
 
 const WhyUs = () => {
   const navigate = useNavigate();
+  // Reference for the video element
+  const videoRef = useRef(null);
+
+  // Effect to trigger play when scrolled into view
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    
+    const videoObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          videoElement.play().catch((err) => {
+            console.log("Autoplay blocked or failed:", err);
+          });
+        } else {
+          videoElement.pause();
+        }
+      },
+      { threshold: 0.4 } // Trigger when 40% of the video is visible
+    );
+
+    if (videoElement) videoObserver.observe(videoElement);
+    
+    return () => {
+      if (videoElement) videoObserver.disconnect();
+    };
+  }, []);
 
   const points = [
     {
@@ -86,6 +111,14 @@ const WhyUs = () => {
     {
       title: "Patient-Centric",
       desc: "Streamlined appointments and rigorous sanitization protocols.",
+    },
+    {
+      title: "Safety-First Radiation Protocols",
+      desc: "Our digital sensors ensure minimal radiation exposure while providing high-definition clarity for the safest possible diagnostic experience.",
+    },
+    {
+      title: "Ultrasonic Sterilization",
+      desc: "Rigorous hospital-grade cleaning protocols for your ultimate safety.",
     },
   ];
 
@@ -146,10 +179,25 @@ const WhyUs = () => {
 
           <div className="image-side">
             <div className="img-container">
-              <img
-                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=2070&auto=format&fit=crop"
-                alt="Clinic"
-              />
+              {/* VIDEO TAG REPLACING IMG TAG */}
+              <video
+                ref={videoRef}
+                muted
+                loop
+                playsInline
+                className="why-us-video"
+                poster="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=2070&auto=format&fit=crop"
+                style={{
+                  
+                }}
+              >
+                {/* Update the src to your actual video path */}
+                <source
+                  src={whyUsVideo}
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
               <div className="accent-border"></div>
             </div>
           </div>
