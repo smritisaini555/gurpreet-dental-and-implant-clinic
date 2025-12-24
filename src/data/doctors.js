@@ -3,7 +3,7 @@ import doctor1 from '../assests/images/doctors/doctor1.png';
 import doctor2 from '../assests/images/doctors/doctor2.jpeg';
 import doctor3 from '../assests/images/doctors/doctor3.jpeg';
 import doctor4 from '../assests/images/doctors/doctor4.jpeg';
-import doctor5 from '../assests/images/doctors/doctor5.webp';
+import doctor5 from '../assests/images/doctors/doctor5.jpeg';
 
 export const executiveDirector = {
     name: "Mr. Gurpreet Singh",

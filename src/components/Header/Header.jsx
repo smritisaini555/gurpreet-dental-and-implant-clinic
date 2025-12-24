@@ -42,22 +42,37 @@ const Header = ({ onNavigate }) => {
     }, [onNavigate]);
 
     const handleLinkClick = (e, linkId) => {
-        if (onNavigate) {
-            e.preventDefault();
-            onNavigate('/');
-            return;
-        }
-
+    // 1. Handle the "In Office Tour" specific case
+    if (linkId === 'in-office-tour') {
         e.preventDefault();
-        setActiveLink(linkId);
-        closeDropdown();
         setIsMenuOpen(false);
-
-        const targetElement = document.getElementById(linkId);
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+        if (onNavigate) {
+            onNavigate('/in-office-tour');
+        } else {
+            // If for some reason onNavigate isn't passed, use standard window location
+            window.location.href = '/in-office-tour';
         }
-    };
+        return;
+    }
+
+    // 2. Existing logic for when we are already on a subpage (redirect back to Home)
+    if (onNavigate) {
+        e.preventDefault();
+        onNavigate('/');
+        return;
+    }
+
+    // 3. Standard smooth scroll logic for Home page
+    e.preventDefault();
+    setActiveLink(linkId);
+    closeDropdown();
+    setIsMenuOpen(false);
+
+    const targetElement = document.getElementById(linkId);
+    if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+};
 
     const handleTreatmentsClick = (e) => {
         e.preventDefault();
