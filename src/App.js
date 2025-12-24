@@ -18,6 +18,7 @@ import MeetOurDoctors from './components/MeetOurDoctors/MeetOurDoctors';
 import InvisalignModal from './components/InvisalignModal/InvisalignModal'
 import PrescriptionForm from './components/PrescriptionForm/PrescriptionForm'; 
 import WhyUs from './components/WhyUs/WhyUs';
+import GalleryPreview from './components/GalleryPreview/GalleryPreview';
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -71,6 +72,7 @@ const HomePageContent = () => {
             <IntroSection />
             <About />
             <WhyUs />
+            <GalleryPreview />
             <Services />
             <MeetOurDoctors />
             <TestimonialsSection />
@@ -127,6 +129,15 @@ function App() {
                     <Route 
                         path="/prescription" 
                         element={<PrescriptionForm />} 
+                    />
+
+                    <Route 
+                        path="/in-office-tour" 
+                        element={
+                            <PageWrapper>
+                                <GalleryPreview isFullPage={true} />
+                            </PageWrapper>
+                        } 
                     />
 
                 </Routes>
