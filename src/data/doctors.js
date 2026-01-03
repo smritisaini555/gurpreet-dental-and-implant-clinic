@@ -1,8 +1,8 @@
 import directorImage from '../assests/images/doctors/director.png';
-import doctor1 from '../assests/images/doctors/doctor1.png';
+import doctor1 from '../assests/images/doctors/doctor1.jpeg';
 import doctor2 from '../assests/images/doctors/doctor2.jpeg';
 import doctor3 from '../assests/images/doctors/doctor3.jpeg';
-import doctor4 from '../assests/images/doctors/doctor4.jpeg';
+import doctor4 from '../assests/images/doctors/doctor4.jpg';
 import doctor5 from '../assests/images/doctors/doctor5.jpeg';
 
 export const executiveDirector = {
