@@ -22,7 +22,7 @@ export const executiveDirector = {
 export const doctorsList = [
   {
     name: "Dr. Harmanjot Singh",
-    specialty: "Orthodontist",
+    specialty: "BDS, Fellowship in Dental Implants, Dental Surgeon & Implant Dentist",
     image: doctor1,
     highlights: [
         { label: "Expertise", text: "Specialized in Fellowship-grade Implantology and Advanced Micro-Endodontics." },
@@ -42,7 +42,7 @@ export const doctorsList = [
   },
   {
     name: "Dr. Vishal Sharma",
-    specialty: "Orthodontist",
+    specialty: "BDS, MDS Orthodontist",
     image: doctor3,
     highlights: [
         { label: "Surgery", text: "Highly skilled in complex wisdom tooth extractions and reconstructive surgery." },
@@ -61,7 +61,7 @@ export const doctorsList = [
   },
   {
     name: "Dr. Nikita",
-    specialty: "Orthodontist",
+    specialty: "BDS (Bachelor's of Dental Surgery) Family & Cosmetic Dentist",
     image: doctor5,
     highlights: [
         { label: "Surgery", text: "Highly skilled in complex wisdom tooth extractions and reconstructive surgery." },
