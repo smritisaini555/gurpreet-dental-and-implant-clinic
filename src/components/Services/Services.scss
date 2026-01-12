@@ -59,6 +59,7 @@
         transition: transform $transition-speed;
         position: relative;
         width: $value-100percentage;
+        border: 1px solid rgba(255, 255, 255, 0.1);
 
         &::before {
             content: "";
