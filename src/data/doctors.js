@@ -10,7 +10,7 @@ export const executiveDirector = {
     role: "Our Founder",
     title: "A Legacy of Digital Innovation Since 1995",
     image: directorImage, 
-    intro: "At a time when advanced dental care was often restricted to major metro cities, Mr. Gurpreet Singh recognized a critical gap in his own community. He founded the Gurpreet Dental & Implant Centre with one mission: To bring world-class dentistry to Machhiwara Sahib.",
+    intro: "At a time when advanced dental care was often restricted to major metro cities, Mr. Gurpreet Singh recognized a critical gap in his own community. He founded the Gurpreet Dental & Implant Centre with one mission: To bring world-class dentistry to Machhiwara Sahib which is now also managed by Dr. Harmanjot Singh.",
     highlights: [
         { label: "Pioneering Spirit", text: "Launched the town’s first advanced digital dental infrastructure in 1995." },
         { label: "Specialized Care", text: "Successfully integrated a team of world-renowned specialists to provide high-end implant and surgical solutions locally." },
