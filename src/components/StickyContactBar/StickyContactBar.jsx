@@ -14,7 +14,7 @@ const SOCIAL_LINKS = [
 
 const CONTACT_LINKS = [
     { icon: Phone, href: 'tel:+919876324499', label: 'Call', key: 'phone' },
-    { icon: Mail, href: 'mailto:gurpreetdentalimplantcentre@gmail.com', label: 'Email', key: 'email' },
+    { icon: Mail, href: 'mailto:gdic@gurpreetdentalandimplantcentre.com', label: 'Email', key: 'email' },
 ];
 
 const StickyContactBar = () => {

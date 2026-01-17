@@ -6,7 +6,7 @@ const Location = () => {
     address: 'Gurpreet dental & optical clinic, near civil hospital, bus stand road, Machhiwara sahib [pincode: 141115]',
     contact: {
       tel1: '+91 9876324499',
-      email1: 'gurpreetdentalimplantcentre@gmail.com',
+      email1: 'gdic@gurpreetdentalandimplantcentre.com',
     },
     hours: {
       days: 'Monday-Saturday',

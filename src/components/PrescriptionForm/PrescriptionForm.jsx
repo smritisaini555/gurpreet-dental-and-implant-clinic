@@ -260,7 +260,7 @@ const PrescriptionForm = () => {
                             <p className="dr-name">Dr. HARMANJOT SINGH (BDS) Pb.</p>
                             <p>MACHHIWARA SAHIB (141115)</p>
                             <p>98763-24499, 96465-34694</p>
-                            <p>gurpreetdentalimplantcentre@gmail.com</p>
+                            <p>gdic@gurpreetdentalandimplantcentre.com</p>
                         </div>
                     </header>
 
