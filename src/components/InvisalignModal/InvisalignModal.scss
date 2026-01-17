@@ -26,9 +26,10 @@
   width: 90%;
   max-width: 500px;
   border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px #88b6be80;
   overflow: hidden;
   padding: 10px 15px;
+  margin-top: 2rem;
 
   &.slide-down {
     animation: slideDown 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
